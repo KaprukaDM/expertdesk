@@ -2,11 +2,12 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Package, FileSearch, Tag } from "lucide-react";
+import { LayoutDashboard, Package, FileSearch, Tag } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const TABS = [
-  { href: "/admin", label: "Orders", icon: Package, exact: true },
+  { href: "/admin", label: "Dashboard", icon: LayoutDashboard, exact: true },
+  { href: "/admin/orders", label: "Orders", icon: Package, exact: false },
   { href: "/admin/requests", label: "Brand study requests", icon: FileSearch, exact: false },
   { href: "/admin/services", label: "Services", icon: Tag, exact: false },
 ] as const;

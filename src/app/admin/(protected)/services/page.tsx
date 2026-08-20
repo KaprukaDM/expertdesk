@@ -1,25 +1,20 @@
 import Link from "next/link";
 import { Plus } from "lucide-react";
-import { Logo } from "@/components/site/logo";
-import { LogoutButton } from "@/components/site/logout-button";
-import { AdminTabs } from "@/components/admin/admin-tabs";
 import { listServicesForAdmin } from "@/lib/services";
 
 export default async function AdminServicesPage() {
   const services = await listServicesForAdmin();
 
   return (
-    <div className="mx-auto max-w-5xl px-6 py-8">
-      <div className="mb-6 flex items-center justify-between">
-        <Logo href="/admin" />
-        <LogoutButton callbackUrl="/admin/login" />
-      </div>
-
-      <div className="mb-8 flex items-center justify-between">
-        <AdminTabs />
+    <div className="mx-auto max-w-6xl px-6 py-8">
+      <div className="mb-8 flex items-center justify-between gap-4">
+        <div>
+          <h1 className="font-heading text-2xl font-semibold">Services</h1>
+          <p className="text-muted-foreground mt-1 text-sm">Manage the service catalog and pricing.</p>
+        </div>
         <Link
           href="/admin/services/new"
-          className="bg-foreground text-background inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-medium"
+          className="bg-foreground text-background inline-flex shrink-0 items-center gap-1.5 rounded-full px-4 py-2 text-sm font-medium hover:opacity-90"
         >
           <Plus className="size-4" />
           Add service
@@ -39,7 +34,7 @@ export default async function AdminServicesPage() {
           </thead>
           <tbody className="divide-border divide-y bg-card">
             {services.map((service) => (
-              <tr key={service.slug}>
+              <tr key={service.slug} className="hover:bg-muted/40 transition-colors">
                 <td className="px-4 py-3">
                   <p className="font-medium">{service.name}</p>
                   <p className="text-muted-foreground text-xs">/{service.slug}</p>

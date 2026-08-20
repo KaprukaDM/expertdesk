@@ -14,7 +14,7 @@ export default async function AdminOrderDetailPage({ params }: { params: Promise
 
   return (
     <div className="mx-auto max-w-2xl px-6 py-8">
-      <Link href="/admin" className="text-primary mb-6 inline-flex items-center gap-1 text-sm font-medium">
+      <Link href="/admin/orders" className="text-primary mb-6 inline-flex items-center gap-1 text-sm font-medium">
         <ArrowLeft className="size-4" />
         All orders
       </Link>

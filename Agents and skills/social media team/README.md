@@ -64,6 +64,17 @@ This is a **team**, not a single agent — each specialist owns exactly one deli
 
 See [Free/Reports/](Free/Reports/) — `Example - Ceylon Bites Internal Report.pdf`, `Example - Ceylon Bites Client Report.pdf`, and `Brand Study Journey.pdf`.
 
+## Commands (4 pipelines)
+
+Each of the 4 pipelines below is now a real slash-command in `.claude/commands/`, not just documentation — run the matching one for whichever stage this order is at:
+
+| Pipeline | Command | Dispatches |
+|---|---|---|
+| Brand Study (Free) | `/social-media-brand-study` | `social-media-brand-study` → `social-media-brand-study-reporter` → `brand-study` |
+| Basic (Paid) | `/social-media-basic` | `social-media-orchestrator`, locked to the 3-specialist Basic set |
+| Standard (Paid) | `/social-media-standard` | `social-media-orchestrator`, locked to the 5-specialist Standard set |
+| Premium (Paid) | `/social-media-premium` | `social-media-orchestrator`, locked to the 6-specialist Premium set |
+
 ## Live data
 
 Real Page/IG Insights (used by the platform-auditor and reporting specialists) require an access token + Page ID the **operator** has already generated via the Meta Business Portfolio / System User flow (see `social-media-management` skill for that architecture) and supplied directly. No agent in this team ever generates a token itself or asks the client for one — opt-in, operator-supplied only, and delivery never blocks on it.

@@ -1,7 +1,4 @@
 import Link from "next/link";
-import { Logo } from "@/components/site/logo";
-import { LogoutButton } from "@/components/site/logout-button";
-import { AdminTabs } from "@/components/admin/admin-tabs";
 import { listRequestsForAdmin } from "@/lib/serviceRequests";
 
 const STATUS_STYLE: Record<string, string> = {
@@ -33,19 +30,21 @@ export default async function AdminRequestsPage() {
   const requests = (await listRequestsForAdmin()).sort((a, b) => STATUS_ORDER[a.status] - STATUS_ORDER[b.status]);
 
   return (
-    <div className="mx-auto max-w-5xl px-6 py-8">
-      <div className="mb-6 flex items-center justify-between">
-        <Logo href="/admin" />
-        <LogoutButton callbackUrl="/admin/login" />
-      </div>
-
-      <div className="mb-8 flex items-center justify-between">
-        <AdminTabs />
-        <p className="text-muted-foreground text-sm">Every brand study request, across every business</p>
+    <div className="mx-auto max-w-6xl px-6 py-8">
+      <div className="mb-8 flex items-center justify-between gap-4">
+        <div>
+          <h1 className="font-heading text-2xl font-semibold">Brand study requests</h1>
+          <p className="text-muted-foreground mt-1 text-sm">Every request, across every business</p>
+        </div>
       </div>
 
       {requests.length === 0 ? (
-        <p className="text-muted-foreground text-sm">No requests yet.</p>
+        <div className="border-border bg-card rounded-2xl border border-dashed p-10 text-center">
+          <p className="text-sm font-medium">No requests yet</p>
+          <p className="text-muted-foreground mt-1 text-sm">
+            Requests will appear here once a customer asks for a free brand study.
+          </p>
+        </div>
       ) : (
         <div className="border-border overflow-hidden rounded-2xl border">
           <table className="w-full text-left text-sm">
@@ -61,7 +60,7 @@ export default async function AdminRequestsPage() {
             </thead>
             <tbody className="divide-border divide-y bg-card">
               {requests.map((request) => (
-                <tr key={request.id}>
+                <tr key={request.id} className="hover:bg-muted/40 transition-colors">
                   <td className="px-4 py-3">
                     <p className="font-medium">
                       {request.user.businessProfile?.businessName ?? request.user.businessName ?? "—"}

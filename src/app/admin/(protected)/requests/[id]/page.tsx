@@ -83,8 +83,8 @@ export default async function AdminRequestDetailPage({ params }: { params: Promi
 
           <div className="grid gap-3 sm:grid-cols-3">
             {request.proposals.map((p) => (
-              <div key={p.id} className="border-border bg-card space-y-2 rounded-2xl border p-4">
-                <div className="flex items-center justify-between">
+              <div key={p.id} className="border-border bg-card min-w-0 space-y-2 rounded-2xl border p-4">
+                <div className="flex items-center justify-between gap-2">
                   <p className="text-sm font-semibold">{p.name}</p>
                   {p.recommended && <Star className="text-primary size-3.5" />}
                 </div>

@@ -68,6 +68,17 @@ Every finding, at every stage, is filtered through one question: **does this mov
 
 The 24 skills that ship alongside claude-seo's 18 agents (`seo-technical`, `seo-backlinks`, etc., plus 9 skill-only extras — see [specialist-bench.md](specialist-bench.md)) live in `.claude/skills/` but aren't individually catalogued here — read them directly, or ask and I'll add doc stubs.
 
+## Commands (4 pipelines)
+
+Each of the 4 pipelines below is now a real slash-command in `.claude/commands/`, not just documentation — run the matching one for whichever stage this order is at:
+
+| Pipeline | Command | Dispatches |
+|---|---|---|
+| Brand Study (Free) | `/seo-brand-study` | `seo-brand-study` → `seo-brand-study-reporter` → `brand-study` |
+| Basic (Paid) | `/seo-basic` | `seo-orchestrator`, locked to the 3-specialist Basic set |
+| Standard (Paid) | `/seo-standard` | `seo-orchestrator`, locked to the 5-specialist Standard set |
+| Premium (Paid) | `/seo-premium` | `seo-orchestrator`, locked to the 10-specialist Premium set |
+
 ## Pricing
 
 | Tier | Price | Delivery |

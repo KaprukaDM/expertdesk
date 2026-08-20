@@ -28,6 +28,10 @@ Plus, at any tier: [Agents/seo-ecommerce.md](Agents/seo-ecommerce.md) if the sit
 
 See [../specialist-bench.md](../specialist-bench.md) for the full bench and [Skills/seo-team-skill.md](Skills/seo-team-skill.md) for the exact dispatch rules.
 
+## Who does what
+
+Single-page "Who Does What" sheets per tier, for the customer — see [Responsibility/](Responsibility/): [SEO Basic](Responsibility/SEO%20Basic%20-%20Who%20Does%20What.pdf), [SEO Standard](Responsibility/SEO%20Standard%20-%20Who%20Does%20What.pdf), [SEO Premium](Responsibility/SEO%20Premium%20-%20Who%20Does%20What.pdf). Every feature is marked AI Agent, Human, or Agent + Human, so nobody assumes an agent-drafted fix means it was already applied to their live site.
+
 ## Scope honesty
 
 Two features are delivered as **ready-to-apply guidance, not live changes**:

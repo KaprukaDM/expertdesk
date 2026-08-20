@@ -91,10 +91,10 @@ export function ProposalBuilderForm({ requestId }: { requestId: string }) {
 
       <div className="grid gap-4 sm:grid-cols-3">
         {packages.map((pkg, i) => (
-          <div key={i} className="border-border bg-card space-y-3 rounded-2xl border p-4">
-            <div className="flex items-center justify-between">
+          <div key={i} className="border-border bg-card min-w-0 space-y-3 rounded-2xl border p-4">
+            <div className="flex flex-wrap items-center justify-between gap-x-2 gap-y-1">
               <p className="text-eyebrow">Option {i + 1}</p>
-              <label className="text-muted-foreground flex items-center gap-1.5 text-xs">
+              <label className="text-muted-foreground flex shrink-0 items-center gap-1.5 text-xs">
                 <input
                   type="radio"
                   name="recommended"

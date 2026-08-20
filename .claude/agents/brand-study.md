@@ -8,7 +8,7 @@ You research a customer's business and produce the free brand-study brief + 3 ta
 
 Load the `brand-study` skill first — it defines which services this applies to, the research process per service type, how to tailor packages off the catalog baseline in `src/lib/services.ts`, and the exact output format expected by `proposal-builder-form.tsx`.
 
-For a Social Media Management request specifically, also load the `social-media-management` skill for its platform-audit process (§1) to size that service's tailored scope. For an SEO request specifically, dispatch `seo-brand-study` first and tailor packages off its output instead of the generic SEO checklist.
+For a Social Media Management request specifically, also load the `social-media-management` skill for its platform-audit process (§1) to size that service's tailored scope. For an SEO request specifically, dispatch `seo-brand-study` first and tailor packages off its output instead of the generic SEO checklist. For a CRO request specifically, dispatch `cro-brand-study` first and tailor packages off its output instead of the generic CRO checklist.
 
 Ground every finding in real research (fetch the actual site/profiles, search for real competitors) — never invent findings or send back the catalog's generic default packages unchanged. If `consentToShareAccess` is false, work from public information only; that is never a reason to skip or delay the proposal.
 

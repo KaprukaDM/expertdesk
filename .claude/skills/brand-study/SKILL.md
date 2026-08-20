@@ -37,6 +37,8 @@ Scope and things to look for **differ by service** — don't run a generic check
 
 ### CRO (`requiresWebsite: true`, needs an online checkout)
 
+**Use the `cro-brand-study` skill/agent for this instead of the checklist below** — it runs the full business-model-aware audit and hands back a SWOT + prioritized fix checklist ready to tailor into packages here. The bullets below are the fallback only if that skill genuinely isn't available:
+
 - **Funnel walk-through**: go through their actual buying path — landing → product → cart → checkout — as a customer would
 - **Drop-off points**: friction in forms, unclear CTAs, missing trust signals (reviews, security badges), checkout steps that feel excessive
 - **Mobile vs. desktop**: does the experience break or degrade on mobile specifically
@@ -137,4 +139,5 @@ RECOMMENDED: <1, 2, or 3>
 
 - **social-media-management** — for the platform-audit process feeding a Social Media Management study, and for fulfilling the order once a package is picked
 - **seo-brand-study** — the deep, archetype-aware SEO study that supersedes this skill's SEO section; **seo-team** fulfills the order once a package is picked
-- **cro**, **ads**, **ai-seo** — for the research depth behind CRO/Google Ads/Meta Ads/GEO studies
+- **cro-brand-study** — the deep, business-model-aware CRO study that supersedes this skill's CRO section; **cro-team** fulfills the order once a package is picked
+- **ads**, **ai-seo** — for the research depth behind Google Ads/Meta Ads/GEO studies

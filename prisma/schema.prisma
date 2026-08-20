@@ -1,0 +1,241 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Expert {
+  SEO
+  GEO
+  GOOGLE_ADS
+  META_ADS
+  CONTENT_STRATEGIST
+  UI_UX
+  CRO
+}
+
+enum Package {
+  QUICK_CHECK
+  FULL_AUDIT
+  GROWTH_PARTNER
+}
+
+enum AuditStatus {
+  RUNNING
+  COMPLETE
+  FAILED
+}
+
+enum FindingSeverity {
+  RED
+  ORANGE
+  YELLOW
+}
+
+enum FindingStatus {
+  OPEN
+  DONE
+  VERIFIED
+}
+
+enum TokenTransactionReason {
+  SIGNUP_BONUS
+  TOPUP
+  AUDIT_RUN
+  ORDER_PLACED
+  ORDER_REFUND
+  REFUND
+}
+
+enum Role {
+  CUSTOMER
+  ADMIN
+}
+
+enum OrderStatus {
+  PENDING
+  DELIVERED
+}
+
+enum RequestStatus {
+  SUBMITTED
+  PROPOSAL_READY
+  CONVERTED
+  DECLINED
+  WITHDRAWN
+}
+
+model User {
+  id              String           @id @default(cuid())
+  email           String           @unique
+  passwordHash    String
+  name            String?
+  phone           String?
+  businessName    String?
+  role            Role             @default(CUSTOMER)
+  createdAt       DateTime         @default(now())
+  businessProfile BusinessProfile?
+  wallet          Wallet?
+  audits          Audit[]
+  orders          Order[]
+  serviceRequests ServiceRequest[]
+}
+
+model BusinessProfile {
+  id           String   @id @default(cuid())
+  userId       String   @unique
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  url          String
+  businessName String
+  platform     String
+  brandKit     Json
+  icp          Json
+  industry     Json
+  confirmed    Boolean  @default(false)
+  researchRaw  Json?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Wallet {
+  id           String            @id @default(cuid())
+  userId       String            @unique
+  user         User              @relation(fields: [userId], references: [id], onDelete: Cascade)
+  balance      Int               @default(0)
+  createdAt    DateTime          @default(now())
+  updatedAt    DateTime          @updatedAt
+  transactions TokenTransaction[]
+}
+
+model TokenTransaction {
+  id        String                  @id @default(cuid())
+  walletId  String
+  wallet    Wallet                  @relation(fields: [walletId], references: [id], onDelete: Cascade)
+  delta     Int
+  reason    TokenTransactionReason
+  refId     String?
+  createdAt DateTime                @default(now())
+}
+
+model Audit {
+  id             String      @id @default(cuid())
+  userId         String
+  user           User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expert         Expert
+  package        Package
+  tokenCost      Int
+  status         AuditStatus @default(RUNNING)
+  summary        String?
+  errorMessage   String?
+  rawAgentOutput Json?
+  costUsd        Float?
+  durationMs     Int?
+  createdAt      DateTime    @default(now())
+  completedAt    DateTime?
+  findings       Finding[]
+}
+
+model Finding {
+  id            String          @id @default(cuid())
+  auditId       String
+  audit         Audit           @relation(fields: [auditId], references: [id], onDelete: Cascade)
+  priority      Int
+  severity      FindingSeverity
+  title         String
+  whyItCosts    String
+  impactEstLkr  Int?
+  actionSummary String
+  guidedSteps   Json
+  resultIfFixed String
+  status        FindingStatus   @default(OPEN)
+  createdAt     DateTime        @default(now())
+}
+
+model Order {
+  id              String          @id @default(cuid())
+  userId          String
+  user            User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  serviceSlug     String
+  serviceName     String
+  packageName     String
+  tokenCost       Int
+  deliveryDays    Int
+  status          OrderStatus     @default(PENDING)
+  deadlineAt      DateTime
+  reportPath      String?
+  reportName      String?
+  createdAt       DateTime        @default(now())
+  deliveredAt     DateTime?
+  sourceRequestId String?         @unique
+  sourceRequest   ServiceRequest? @relation(fields: [sourceRequestId], references: [id])
+
+  @@index([userId, serviceSlug, status])
+}
+
+// A customer's request for a free brand study on a service. The agency researches the
+// business, uploads a brief, and writes 3 tailored ProposedPackage options (custom price/scope
+// for this client — not the generic catalog tiers). No tokens move until the customer picks
+// one, which converts this into a real Order.
+model ServiceRequest {
+  id             String            @id @default(cuid())
+  userId         String
+  user           User              @relation(fields: [userId], references: [id], onDelete: Cascade)
+  serviceSlug    String
+  serviceName    String
+  message        String?
+  status         RequestStatus     @default(SUBMITTED)
+  // Soft opt-in asked right after submission: would they give us view access to their ad/
+  // analytics accounts so the brief is based on real data instead of a guess.
+  consentToShareAccess Boolean @default(false)
+  briefPath      String?
+  briefName      String?
+  proposalSentAt DateTime?
+  createdAt      DateTime          @default(now())
+  proposals      ProposedPackage[]
+  order          Order?
+
+  @@index([userId, serviceSlug, status])
+}
+
+// One of the 3 tailored options an admin writes after the brand study. `position` (1-3) keeps
+// the Basic/Standard/Premium-style left-to-right order without hardcoding those names — the
+// agency can title and scope each one to what the study actually found.
+// Admin-editable layer over the service catalog. For a slug that also exists in the static
+// catalog (src/lib/services.ts), any non-null field here overrides the static value — this is
+// how admins change pricing/copy without a code deploy. For a slug with no static counterpart,
+// this row IS the service (admin-created via "Add service"), so `packages` is required and the
+// content fields should be filled in at creation time.
+model ServiceOverride {
+  id                String   @id @default(cuid())
+  slug              String   @unique
+  active            Boolean  @default(true)
+  name              String?
+  blurb             String?
+  description       String?
+  applicability     String?
+  icon              String?
+  accessPlatforms   Json?
+  requiresWebsite   Boolean?
+  instantCheckout   Boolean?
+  faq               Json?
+  packages          Json?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model ProposedPackage {
+  id           String         @id @default(cuid())
+  requestId    String
+  request      ServiceRequest @relation(fields: [requestId], references: [id], onDelete: Cascade)
+  position     Int
+  name         String
+  tagline      String?
+  tokenCost    Int
+  deliveryDays Int
+  features     Json
+  recommended  Boolean        @default(false)
+  createdAt    DateTime       @default(now())
+}

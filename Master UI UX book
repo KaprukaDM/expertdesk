@@ -1,0 +1,858 @@
+# The UI/UX Master Book
+
+*A plain-English guide to designing interfaces people understand — assembled from the design
+library behind Kapruka's UI/UX/CRO agents.*
+
+## What this book is
+
+Three books went into this: *The Ultimate Handbook of UI/UX Product Design* (Lise Pilot), *UX and
+UI Strategy* (Pamala Deacon), and *Roots of UI/UX Design* (Elisa Paduraru). Each covers similar
+ground from a different angle — process, strategy, visual craft. This book merges them into one
+narrative, cuts the repetition, and explains the *why* behind each rule in plain language, not just
+the rule itself.
+
+It's organized in two halves because the discipline splits in two:
+
+- **UX (User Experience)** is the *blueprint*. It's invisible when done well — the research, the
+  flow, the structure that decides what happens when someone taps a button. UX asks "does this
+  work?" and "does this make sense?"
+- **UI (User Interface)** is the *paint, furniture, and light fixtures*. It's what people actually
+  see and touch — color, type, spacing, buttons. UI asks "does this look right?" and "does this
+  feel good to use?"
+
+UX comes first because you can't decorate a floor plan that doesn't exist yet. But neither one
+works alone — a beautifully designed screen with a confusing flow fails just as hard as a
+perfectly logical flow that's ugly and hard to read.
+
+---
+
+# Part I — UX: How It Works
+
+## Chapter 1 — The UX Process
+
+Good UX isn't a single decision, it's a loop you run over and over:
+
+1. **Understand user needs.** Before you design anything, build a picture of who's using this and
+   what they're trying to do. Pull from market research, existing-customer data, interviews, and
+   surveys — not guesses.
+2. **Do the research.** Never assume you already know your users. Run the surveys, do the
+   interviews, then let what you learn actually change the design.
+3. **Sketch.** Rough out the user's journey based on what the research told you.
+4. **Design.** Turn the sketch into something real. It should feel familiar — "like they've used
+   it before" — simple, accessible, and easy to operate.
+5. **Implement.** Ship it. Give users full access.
+6. **Evaluate.** Watch what actually happens — pages viewed, time on site, where people drop off —
+   and feed that back into step 1.
+
+A UX designer's day-to-day work breaks into six recurring jobs: research, personas, structuring
+information, designing user flows and wireframes, prototyping, and testing. None of these are
+about visual polish — that's UI's job, next door.
+
+### Design Thinking — the mindset behind the process
+
+Design Thinking is the attitude that makes the loop above actually work. It's built for problems
+that don't have an obvious, textbook answer yet:
+
+- **Empathy first.** Solve for real human needs, not what's technically impressive. Get into the
+  user's shoes through interviews and testing — people are the source of good ideas, not
+  technology.
+- **Collaborate wide.** Pull in people from different disciplines who don't normally talk to each
+  other. Diverse rooms produce ideas a single-discipline room won't.
+- **Generate a lot of ideas before judging any of them.** Dedicated ideation sessions, volume over
+  premature editing.
+- **Build cheap, test fast.** A rough prototype you can put in front of a real user today beats a
+  polished one you finish in three weeks. Pen, paper, and sticky notes count.
+- **Bias toward action.** Don't predict what people want — hand them something and watch.
+
+You don't need a UX title to use this. Pick one piece — run five user interviews when reviews are
+bad, or hold one genuinely cross-functional brainstorm — and you're already doing it.
+
+---
+
+## Chapter 2 — Getting to Know Your Users
+
+You can't design for someone you don't understand. This chapter is about how to actually find out
+who they are.
+
+### Research methods — and when to reach for each one
+
+| Method | What it's good for |
+|---|---|
+| **Interviews** (internal & external) | Understanding one person's motivations deeply; the raw material for personas |
+| **Surveys** | Validating a hunch at scale, across many people at once |
+| **Focus groups** | Surfacing group attitudes and shared needs |
+| **Contextual inquiry** | Watching users in their *real* environment, not a lab |
+| **Shadowing** | Observing real behavior without interfering or asking questions mid-task |
+| **User testing** | Confirming whether the actual design meets the actual need |
+
+The strongest design decisions aren't backed by one of these — they're backed by several,
+triangulated: what users say, what business/marketing stakeholders need, what competitors do, and
+what your analytics already show. Mix qualitative (why) with quantitative (how many, how often).
+
+**Recruiting people to talk to:** aim for 5–10 participants who genuinely match your end-user
+profile — scale that up for bigger, more complex products. Tell people up front how many sessions
+there will be. Never ask anything that invades privacy or causes distress. If you promise a reward
+for participating, deliver it — you'll want these people again for the next round.
+
+### Personas
+
+A persona is a composite, realistic picture of your customer, built from real data — not a guess
+dressed up with a stock photo and a fake name. To build one:
+
+1. Analyze your existing customer data.
+2. Run interviews (inside and outside the company) and surveys.
+3. Talk to people who share the same characteristics as your target audience, even if they're not
+   customers yet.
+4. Capture: their objectives, goals, challenges, needs, expectations, motivations, and the
+   problems they're actually trying to solve.
+
+A persona's job is to anchor every later design decision back to a real person's real need — so
+when a debate happens in a meeting, someone can ask "would this actually help Priya?" instead of
+arguing preferences.
+
+---
+
+## Chapter 3 — Mapping the Journey
+
+### User flows
+
+A user flow is the path someone takes through your product to reach a goal — the sequence of
+screens and actions, start to finish. Map this out **before** you touch a wireframe, or the
+wireframe ends up disorganized because nobody agreed on the order of screens first.
+
+For every flow, nail down three things:
+
+- **Where do users come from?** Which channel, off the back of what message or ad?
+- **Where do you want them to end up?** The actual goal state, not just "done."
+- **How many screens exist, and in what order do people move through them?**
+
+### Information architecture
+
+Two different hierarchies need defining, and people often only think about the first one:
+
+1. **Content hierarchy** — how everything is organized across the *whole* product. This is the
+   sitemap-level structure.
+2. **Visual/graphical hierarchy** — how someone navigates effortlessly *within* one page or
+   section. This is what makes a single screen scannable.
+
+Navigation, at its core, is just planning the app as a sequence of actions that's easy to follow.
+Two questions should be answerable at every step: *"What am I doing right now?"* and *"What
+happens if I do this?"* Build the sitemap before you start laying out screens. And break big blocks
+of content into small, digestible pieces — nobody wants to process a wall of information at once.
+
+### Navigation, in practice
+
+- **Header nav** carries the key sections plus login/signup — it's the top-level map of the
+  product.
+- **Sidebar nav** suits dashboards and admin tools — show primary pages (plus secondary ones when
+  needed), keep multi-level dropdowns clearly organized, and always **highlight the active link**
+  so people know where they are.
+- **Footer nav** is the user's last resort when they're lost — logical, well-spaced links to
+  resources, policies, contact, and social, plus room for a newsletter signup or localization
+  (currency/language) if relevant.
+
+Whatever the pattern, avoid clutter, prioritize the pages that actually matter, and make sure it
+holds up on a small screen too.
+
+---
+
+## Chapter 4 — The Rules of Usability
+
+### The five things that make something "usable"
+
+1. **Learnability** — how easy is it to do the basics the very first time?
+2. **Efficiency** — once someone's learned it, how fast can they get things done?
+3. **Memorability** — if they leave and come back a month later, do they remember how it works?
+4. **Errors** — how often do things go wrong, how bad is it when they do, and how easily can
+   someone recover? Handle mistakes patiently — the system should absorb the error gracefully, not
+   punish the user for it.
+5. **Satisfaction** — does the flow feel smooth, and do results match what was expected? The
+   system should drive the user, not the other way around — a good interface never makes you fight
+   it.
+
+### Nielsen's 10 heuristics — a checklist for evaluating any screen
+
+These are the closest thing UX has to a universal quality bar. Run any screen through them:
+
+1. **Visibility of system status** — always tell the user what's happening (a spinner, a progress
+   bar, a confirmation message). Silence reads as "broken."
+2. **Match between system and the real world** — use words, icons, and metaphors people already
+   know. Don't invent new jargon when a familiar term already exists.
+3. **User control and freedom** — easy undo, cancel, and exit. Never trap someone in a flow they
+   didn't mean to start.
+4. **Consistency and standards** — the same word/icon/action should always mean the same thing.
+   Follow the conventions of the platform you're building on.
+5. **Error prevention** — better than a good error message is *no error happening at all*. Validate
+   before submission, not after.
+6. **Recognition rather than recall** — show the options instead of making someone remember them.
+   ("Recently viewed" beats "type it again from memory.")
+7. **Flexibility and efficiency of use** — give experts shortcuts while keeping the default path
+   simple for beginners. Both should be able to succeed.
+8. **Aesthetic and minimalist design** — show only what's essential. Every extra element competing
+   for attention makes the important ones harder to find.
+9. **Help users recognize, diagnose, and recover from errors** — plain-language messages that say
+   exactly what went wrong and what to do about it. "Something went wrong" is not a fix.
+10. **Help and documentation** — accessible, searchable help, available exactly when it's needed,
+    not buried three menus deep.
+
+Run a **heuristic evaluation** — an expert walking through the product against this list — early
+and often. It's fast, cheap, and catches obvious problems before you spend money on user testing.
+
+### Everyday behavioral rules worth knowing
+
+- **People scan, they don't read.** Eyes move in predictable patterns — an **F-pattern** (top,
+  then down the left edge, scanning right occasionally) or a **Z-pattern** (top-left → top-right →
+  diagonal → bottom-right) depending on the layout. Put your headline and primary call-to-action
+  where the scan actually goes — a beautifully designed element in a spot nobody's eyes pass
+  through does nothing.
+- **First impressions form in about a tenth of a second**, and people judge whether a product is
+  "quality" within about 90 seconds. Whatever's on screen first has to earn the next ten seconds of
+  attention.
+- **Rounded corners feel easier to process than sharp ones** — they draw attention inward instead
+  of scattering it at the edges, which is part of why so many interfaces default to them.
+- **Button placement follows a convention**: "forward"/"advance" sits on the right, "back"/"return"
+  sits on the left. If you want to slow someone down before a destructive action (like deleting an
+  account), it's a legitimate trick to deliberately swap that convention — the unfamiliar layout
+  makes people stop and read instead of clicking on autopilot.
+- **Long forms overwhelm; chunked forms don't.** Split a long form into a step-by-step wizard.
+  Don't use a dropdown for fewer than 4 options (a set of visible radio buttons is faster), and
+  don't build a wizard for fewer than 2 or more than about 10 steps.
+
+---
+
+## Chapter 5 — Designing Interactions, Control by Control
+
+Different input types have different rules of thumb. This is the cheat sheet:
+
+- **Text inputs** — accept the data type you'd actually expect (don't force a phone number field to
+  reject reasonable formats); make the field comfortably sized for typing; use placeholder text as
+  an *example*, not a label substitute; put clarifying icons inside the field; give inline
+  validation feedback as the person types, not only after they submit.
+- **Dropdowns** — use them once you have more than 4 options (below that, show the choices
+  directly). Add search and a scrollbar for long lists; use dividers or categories once a list gets
+  long enough to need scanning help.
+- **Radio buttons** — for 2 or more *mutually exclusive* options where only one can be picked.
+- **Checkboxes** — for independent choices where zero, one, or many can be selected. Give them a
+  large enough tap target — over 48px on mobile.
+- **Toggles** — represent exactly two linked states (on/off). Don't rely on baked-in "ON/OFF" text
+  inside the graphic — use a distinct color to show which state is active, since text at that scale
+  is easy to miss.
+- **Wizards** — show progress with numbered steps; only let someone hit "Next" once the required
+  fields on that step are filled in; keep the buttons labeled simply "Previous/Next"; explain what
+  each step is for before they start filling it in.
+- **Tabs** — use them to cut navigation cost for closely related content (switching between pricing
+  plans without a full page reload, for example). On mobile, keep a bottom tab bar to 5 items or
+  fewer — more than that and people can't scan it at a glance.
+- **Breadcrumbs** — worth adding once a site is more than 2 levels deep. Highlight the links
+  clearly so the hierarchy is obvious at a glance.
+
+---
+
+## Chapter 6 — From Sketch to Prototype
+
+### What a wireframe actually is
+
+A wireframe is the skeleton of a screen — what's on it and in what order — with **zero** visual
+design or branding. Think of it as a building's blueprint: nobody argues about paint color while
+looking at a blueprint, because that's not what it's for. Its whole value is that it's cheap and
+fast to change, unlike a fully coded screen.
+
+### Building one (a six-step process)
+
+1. **Research first.** Wireframing is never step one. Understand your users, list the actual
+   requirements, build personas, define concrete use cases. Look at what similar products do and
+   what current UX conventions are, and keep your core design principles in view.
+2. **Turn the research into a cheat sheet.** Business and user objectives, personas, use cases,
+   notable things competitors do well, and a few real quotes from actual users — something you can
+   glance at to stay anchored to the user instead of drifting toward your own preferences.
+3. **Map the user flow.** Decide how many screens there are and the path between them — this *is*
+   the flow-mapping and IA work from Chapters 2 and 3, applied concretely.
+4. **Draft, don't draw. Sketch, don't illustrate.** Pen to paper immediately. Outline features and
+   layout only — ignore color, imagery, and polish entirely, that's the UI designer's job later.
+   Use a thick marker on purpose; it physically prevents you from getting precious about detail
+   too early. Then move the sketch to a whiteboard with a colleague and ask: *"Are we making
+   something usable that actually meets our audience's needs?"*
+5. **Add detail and start testing.** Work through the screen top-to-bottom, left-to-right. Apply
+   usability conventions (nav next to the logo, search box top-right) and note what happens when
+   someone taps something. Still no final copy — it's still a skeleton. Run your first tests, even
+   if the "users" are just colleagues for now. From here on, the wireframe is a shared language
+   between designers, stakeholders, and developers — everyone's arguing about the same picture.
+6. **Turn it into a prototype.** Once feedback's been documented and acted on, move to a
+   higher-fidelity, interlinked prototype for a second, more realistic round of testing.
+
+### Matching prototype fidelity to project stakes
+
+- `Sketch → Code` — for low-stakes screens (an internal admin tool) or when time is short.
+- `Sketch → Wireframe → Visual → Code` — the standard path for most projects.
+- `Sketch → Wireframe → Hi-fi Wireframe → Visual → Code` — when you need more thoroughness.
+- `Wireframe → Interactive Prototype → Visual → Sketch → Code` — for high-stakes work, where a
+  fully realized interactive prototype with real testing rounds is worth the investment.
+
+The rule underneath all four paths: **match the fidelity to the question you're actually trying to
+answer.** Don't build a pixel-perfect mockup to test whether the navigation order makes sense —
+that question only needs a sketch. Don't test a subtle color decision on a hand-drawn wireframe —
+that needs the real thing.
+
+---
+
+## Chapter 7 — Testing Your Design
+
+Test rough, interactive prototypes on real people *before* building the full product — it's
+cheaper to fix a sketch than a shipped feature. Write use cases early, turn them into concrete test
+cases, and use those to structure what you ask testers to do.
+
+Iterate through fidelity as you go: paper demo → test → advanced paper demo → test → graphical
+mockup → test → implement. Each round should be informed by the last one's findings, not run in
+isolation.
+
+**Four validation techniques, and when to reach for each:**
+
+- **Expert review** — a specialist evaluates the design against known principles. Fast, cheap, no
+  users required.
+- **Cognitive walkthrough** — you step through the task exactly as a user would, looking for
+  friction, confusion, or dead ends.
+- **Formative testing** — done *during* development, specifically to improve the design as you go.
+- **Summative testing** — done at the *end*, to check whether the finished thing actually meets its
+  goals.
+
+For usability rounds specifically, **5–7 participants per round** is enough to surface most of the
+real problems — you don't need dozens of people to find the issues that matter, you need the right
+handful.
+
+---
+
+## Chapter 8 — Designing for Everyone
+
+Accessibility isn't a feature you bolt on at the end — it's one of the core things that makes a
+design good or bad in the first place. Over a billion people live with some form of disability;
+designing without them in mind isn't a neutral choice, it's an active exclusion.
+
+**The plain-language version of what to do:**
+
+- Make sure text is genuinely readable against its background (see the numbers in Part II —
+  contrast isn't a matter of taste, it's measurable).
+- Every interactive element should be fully usable with a keyboard alone — no mouse-only traps.
+- Label everything — form fields, buttons, images — with real, descriptive text. "Click here" tells
+  a screen-reader user nothing; "Submit your order" does.
+- Never make color the *only* way information is conveyed — a colorblind user needs the same
+  information from text, an icon, or a pattern too.
+- Test with real assistive technology — screen readers like NVDA, JAWS, or VoiceOver — and ideally
+  with real users who have disabilities, not just automated tools.
+- Offer a dark mode where it makes sense; it genuinely reduces eye strain for a meaningful share of
+  users.
+
+This is a legal requirement in many places (ADA, Section 508, the EU Web Accessibility Directive)
+— but treat it as a design requirement first, and the legal box checks itself.
+
+---
+
+## Chapter 9 — Designing for Thumbs
+
+Over half of web traffic is mobile — design the smallest screen first, then expand outward, not
+the other way around.
+
+- **Streamline navigation.** A mobile screen has no room for the header nav that worked on desktop
+  — decide what actually matters and cut the rest.
+- **Design for thumbs, literally.** Keep primary actions within comfortable thumb reach; don't
+  place critical controls in corners that require a hand shift to reach.
+- **Declutter aggressively.** Complexity that was fine on a large screen becomes unusable on a
+  small one — every element has to justify its presence.
+- **Use bigger text and native controls.** Don't repurpose a desktop-style dropdown for mobile when
+  the platform has a native picker that people already know how to use.
+- **Minimize typing.** Every field you can remove, autofill, or replace with a tap is a field
+  someone won't abandon your form over.
+- **Keep the experience consistent** across web and mobile — someone switching devices mid-task
+  shouldn't feel like they're using a different product.
+
+---
+
+## Chapter 10 — Recurring Patterns Worth Getting Right
+
+A few components show up in nearly every product. Getting these specifically right pays off
+disproportionately, because they're where most of the friction actually lives:
+
+- **Cards** — put the most critical content at the top; keep the copy concise; one clear link per
+  card (multiple competing links inside a card just confuses people); keep the primary and
+  secondary actions visually distinct; keep framing consistent across a set so a grid of cards
+  doesn't look chaotic.
+- **Forms** — only ask for what you genuinely need. Every extra field is a small tax on completion.
+  Include a Terms consent checkbox wherever you're processing personal data.
+- **Sign up / sign in** — clear field labels, real-time validation (an email that's obviously
+  malformed, a password that's obviously too short), a Terms checkbox with a real link, a
+  "Remember Me" option on sign-in, and always a visible link between the two screens so someone who
+  landed on the wrong one isn't stuck.
+- **Checkout / cart** — show line items, quantities, subtotal, tax, and shipping clearly; let
+  people edit quantities in place; keep a "Continue Shopping" option; auto-fill addresses where
+  possible; make "Confirm Payment" visually unmistakable from everything else on the page.
+- **Loading states** — show progress on anything that isn't instant. Silence during a wait reads as
+  a crash, not patience.
+- **Empty and error states** — never strand someone on a blank or confusing screen. Acknowledge
+  what happened and give a clear next step — "no results found, try broadening your search" beats a
+  blank white page every time.
+- **Tables** — left-align text, right-align numbers, center icons/badges. Generous line height.
+  Paginate instead of showing everything at once, and add sortable headers and filters once the
+  data set is big enough to need them.
+- **FAQs** — generous whitespace, icons that clearly signal "this expands." A good FAQ genuinely
+  reduces support load and helps search visibility as a side effect.
+
+---
+
+# Part II — UI: How It Looks
+
+## Chapter 11 — The Philosophy Behind Good Visuals
+
+A handful of beliefs sit underneath every visual decision in this book:
+
+- **Nothing is decorative-only.** From the color of a single button to the layout of a whole nav
+  menu, every element should have a purpose. If you can't explain why something looks the way it
+  does, that's a sign it needs another look.
+- **Design is a loop, never a single shot.** Design → test → refine, repeat. Ship the version that
+  survived feedback, not the first idea that felt right in isolation.
+- **Consistency builds trust.** The same word, icon, or action should mean the same thing
+  everywhere in the product. Familiarity isn't boring — it's a feature, because it means people
+  stop having to think about the interface and can focus on their actual task.
+- **Minimize how much someone has to remember.** Show the options instead of expecting people to
+  recall them from memory.
+- **Design for the real conditions people are actually in** — a cracked phone screen in bright
+  sunlight, one hand full of groceries, a shaky connection. Not the ideal lab conditions a design
+  looks perfect under.
+- **Clarity beats cleverness, every time.**
+
+A few well-known design systems distill their whole philosophy into a short phrase — worth knowing
+because you'll recognize the fingerprints in products you use daily:
+
+- **Apple:** *Human, Intuitive, Clean* — less is more; reduce distraction.
+- **Google/Material:** *Focus on the user, Simplicity & Beauty, Utility* — bold and intentional;
+  "motion provides meaning."
+- **Microsoft/Fluent:** *Inclusive, Adaptable, Secure & Trusted* — fluid layouts, deliberate depth.
+- **Atlassian:** *Don't Make Me Think, Be Consistent, Think End-to-End.*
+- **Airbnb:** *Unified, Universal, Iconic, Conversational.*
+
+If you're writing your own design principles, aim for 3–5 of them, phrase each as an active verb
+("Make it easy," not "Prioritize simplicity"), tie each one to a real user need, and pair it with a
+concrete example so it's actually testable in a design review — not just a poster on the wall.
+
+---
+
+## Chapter 12 — Guiding the Eye
+
+Visual hierarchy is the art of making sure someone's eye lands on the most important thing first,
+and then in the right order after that.
+
+- **One clear focal point per screen.** Everything else is secondary or tertiary — if three things
+  are all fighting to be "the most important," none of them win.
+- **Size, weight, color, contrast, spacing, and position all encode importance.** Bigger, bolder,
+  higher-contrast, and more isolated all read as "more important," whether or not that's what you
+  meant.
+- **Whitespace is a tool, not empty space you forgot to fill.** Isolating an element increases how
+  important it feels, and space is what separates one group of related things from another.
+- **Validate it.** Eye-tracking or heat-map tools (Hotjar, Tobii) confirm whether attention is
+  actually landing where you intended.
+- **The first click predicts success.** If the first thing someone taps doesn't move them toward
+  their goal, the hierarchy — or the navigation — is wrong, no matter how good it looks.
+
+---
+
+## Chapter 13 — Grids & Layout
+
+A grid is just intersecting lines that create columns, rows, gutters, and margins — structure that
+makes alignment and responsiveness possible instead of accidental.
+
+- **Use a column count that divides evenly** — 12 is the default (splits cleanly into halves,
+  thirds, and quarters), 6 or 8 also work. Avoid 7, 9, or 11 — they don't divide cleanly and make
+  consistent layouts harder to build.
+- **Gutters** are the space between columns; **margins** are the space around the whole grid.
+- **Fluid grids** flex their column widths with the screen (margins/gutters stay fixed) — use this
+  for anything responsive. **Fixed grids** stay a constant size regardless of screen — use this
+  only when content genuinely shouldn't reflow.
+- **Desktop:** 12-column grid, gutters around 12–16pt, margins around 160–180pt.
+- **The 8-point rule:** size and space everything in multiples of 8 (8, 16, 24, 32, 40...). Most
+  screens divide evenly by 8, so this keeps rhythm consistent and makes handoff to developers
+  faster because there's no ambiguity about "was that supposed to be 15px or 16px?"
+- **Mobile:** 8pt grid, margins around 16px (sometimes 20–24px), gutters 16px by default — don't go
+  below 8px except in genuinely tight, minimal layouts.
+- **Give the design room to breathe.** Ample space between text, images, and buttons isn't wasted —
+  it's what makes the layout feel calm instead of crowded.
+
+---
+
+## Chapter 14 — Typography
+
+- **Typeface vs. font:** the *typeface* is the overall family (Helvetica, Roboto); a *font* is one
+  specific style within it (Regular, Bold, Italic). Choose a typeface for legibility, how well it
+  scales, and how many weights it offers — a family with only one weight boxes you in later.
+- **Categories:** Sans Serif reads clean, modern, informal. Serif reads classic and sophisticated.
+  Script fonts should be avoided for UI or body text — they're genuinely harder to read at
+  interface sizes, whatever mood they add.
+- **Line height and size move in opposite directions.** Larger text needs a *shorter* line height
+  relative to its size; smaller text needs a *taller* one. As a rule of thumb for small text, line
+  height ≈ font size × 1.6 (so 16pt text gets roughly 26pt of line height).
+- **Line length matters more than people expect.** Too short and the eye has to jump lines
+  constantly, breaking flow; too long and it's easy to lose your place returning to the start of
+  the next line. Aim for **45–75 characters per line** for body text.
+- **Alignment:** left-align by default — most languages read left to right, and most people are
+  right-handed, so this is simply the path of least resistance. Center-align only for short text
+  like a headline. Justify cautiously, and watch the "rag" (the uneven right edge) — an ugly rag
+  looks like a mistake even when the content is fine.
+- **Keep it to 1–2 typefaces.** Use weight, size, and case to create hierarchy instead of reaching
+  for a third family — more families rarely reads as "richer," it reads as "inconsistent."
+- **Base body text should be at least 16px.** Going smaller genuinely hurts readability and
+  accessibility — it's not a stylistic nuance, it's a measurable usability cost.
+- **Define a type scale up front** — at least 10 text styles, generated from a base size using a
+  consistent ratio (commonly 1.2–1.25, a "modular scale"). A typical resulting ramp looks like
+  12·14·16·20·24·32·40·48px. Cap it at **3 font sizes per section** so a screen doesn't turn into a
+  ransom note.
+
+---
+
+## Chapter 15 — Color
+
+Color sets mood and signals brand — but its *primary* job in an interface is functional: guiding
+attention and communicating state.
+
+- **Formats:** Pantone for print/branding, HEX and RGB for digital screens, CMYK for print
+  production.
+- **Vocabulary:** *Hue* is the pure color itself. A *tint* is hue + white (lighter). A *shade* is
+  hue + black (darker).
+- **Avoid pure black text on pure white** — it causes real eye strain at length; use a dark gray
+  instead. The same goes in reverse for dark mode: pure white on pure black causes a glare effect
+  called "halation" that's genuinely worse for people with astigmatism.
+
+### Building a palette (5 steps)
+
+1. **Primary color** — for buttons, icons, headers. This is the color your product "is."
+2. **Secondary color** — for secondary actions; usually complementary to the primary, or a neutral
+   gray.
+3. **Attention colors** — for notifications, alerts, modals, and inputs (this is where semantic
+   colors like error-red and success-green live).
+4. **Tints and shades** — derived from the above, for cards, backgrounds, and overlays.
+5. **Apply the 60-30-10 rule** — roughly 60% of the interface should be your dominant/neutral
+   color, 30% secondary, and only 10% accent. This is why a "colorful" product usually isn't
+   actually covered in color — it's mostly neutral, with color used sparingly and precisely where
+   it matters.
+
+**Semantic colors people already expect:** blue = information, green = success, yellow = warning,
+red = danger or error. Bucking these conventions without a very good reason just adds a layer of
+translation the user shouldn't have to do.
+
+**Color-wheel relationships**, useful once you're past the primary/secondary basics: complementary
+(opposite on the wheel, high contrast), analogous (neighbors on the wheel — one dominant plus two
+accents), split-complementary, triadic (three evenly spaced — bold), and monochromatic (one hue,
+varied only in tints/shades — subtle and cohesive).
+
+**Never encode information by color alone.** A colorblind user needs the same information from
+text, an icon, or a pattern too — color is a reinforcement, not the only channel.
+
+**Dark mode isn't just "invert the colors."** Tints actually create *more* contrast than shades do
+against a dark background, which is the opposite of how they behave on light backgrounds — a
+naive inversion produces a muddy, low-contrast result.
+
+---
+
+## Chapter 16 — Depth: Shadows, Gradients & Elevation
+
+**Shadows** communicate hierarchy, depth, and relative position — their absence makes an interface
+feel flatter and less "real." Three options: no shadow (flush with the surface), drop shadow
+(raised above it), and inner shadow (embedded into it — common on inputs and in the Neumorphism
+style).
+
+To make a shadow read as physically plausible: set its offset, blur, and opacity deliberately;
+never put the shadow *above* the object (light doesn't come from below, so it reads as wrong even
+if you can't say why); and combine a tight, darker "core shadow" right at the object's edge with a
+wider, lighter "cast shadow" behind it, rather than one flat blur — real shadows have both. Shadow
+size should scale with object size. In dark mode, shadows should never be pure white — use a darker
+shade of the element's own color plus a lighter tint of the background instead.
+
+**Gradients** are a gradual transition between two or more colors, used to add a sense of realism
+or depth to type, buttons, cards, and headers. Keep transitions gentle, use three colors at most in
+a small shape, and keep color stops symmetric. A primary color blended into its own tints/shades is
+always a safe combination. A primary blended straight into its complementary color can produce an
+ugly gray midpoint — if you want that combination, insert a bridging color from elsewhere on the
+wheel first.
+
+---
+
+## Chapter 17 — Spacing & Rhythm
+
+Whitespace isn't leftover space — it actively groups related things together and separates
+unrelated ones, purely through proximity. Treat it as a real design element, the same way you'd
+treat a color or a typeface, and define it as reusable tokens rather than eyeballing it screen by
+screen.
+
+**A standard spacing scale**, built on the same 8px base unit as the grid: 4 · 8 · 16 · 24 · 32 ·
+48 · 64. Use 4px only for small optical corrections. Smaller gaps mean "these things are related";
+larger gaps mean "these are different groups" — that's the whole mechanism, and it works because
+it's consistent.
+
+---
+
+## Chapter 18 — Building Blocks
+
+### Buttons
+
+A button has to *look* interactive before anyone will treat it as one — shape, size, color,
+shadow, and label all contribute to that signal. Rounded corners are the norm because they're
+easier on the eye and keep attention on the label rather than the corners. For sizing: text around
+16px, roughly 12px of padding for a "base" height, and a simple width rule of thumb — about twice
+the height. Keep a real size ladder (xs / s / base / l / xl) rather than one-off dimensions per
+screen.
+
+Minimum touch targets: Material recommends at least 36×36px, Apple at least 40×40px (with ~44×44px
+as the comfortable mobile target). Establish a clear hierarchy — primary (the main action),
+secondary, and tertiary (low-impact) — but keep border-radius, typography, and shadow style shared
+across all three levels so they read as a family. If every option on a screen is genuinely equal in
+importance, resist the urge to impose a fake hierarchy just for variety.
+
+Every button needs its full set of states defined: default, hover, active/pressed, in-progress,
+focus, and disabled.
+
+### Forms & inputs (visually)
+
+Rounded corners are the norm here too. Relevant icons inside a field genuinely improve
+intuitiveness (a calendar icon next to a date field, for instance). Constrain input width when it
+makes the form look organized rather than sprawling. Always give visible state feedback — an error
+message when something's wrong, a success icon when it's right — and design a dropdown as an input
+plus a chevron so it visually reads as "there's a list here" before anyone clicks it.
+
+### Icons
+
+Icons work because images are processed faster than text — so keep them simple and instantly
+recognizable, not clever. Pick one style (outline, glyph, or duo-tone — duo-tone is the most common
+and legible) and never mix styles within a product; a gradient icon next to a flat one reads as a
+mistake even if both individually look fine. Contain icons in a fixed frame (16×16, 24×24, or
+32×32px) so scaling stays predictable, keep the palette to 3–4 colors, and match line weight across
+the whole set. When an icon sits next to text in a navbar or sidebar, don't match it exactly to the
+text color — a tint at 50–70% opacity of the primary color keeps it from competing with the label
+for attention. And never rely on an icon alone to carry critical meaning — pair it with a label,
+both for clarity and for accessibility.
+
+### Images
+
+Brains process images dramatically faster than text, and most of what people absorb from a page is
+visual — which is exactly why a bad image choice does real damage. Establish a clear focal point so
+crops don't lose context across different screen sizes; if an image is hard to make sense of at a
+small size, it's the wrong image, not a cropping problem. Compress before uploading — it's faster
+*and* it looks sharper, since a blurry image reads as low quality regardless of the actual content.
+When placing text over an image, apply a dark or brand-colored filter at 50–80% opacity so the text
+stays legible without losing all the image's detail underneath. The rule of thirds — dividing the
+frame into nine parts and placing the subject on a line or intersection — creates more visual
+interest than dead-centering everything.
+
+### Illustrations
+
+Illustrations convey emotion and information fast, and can substitute for photography where a photo
+would feel too literal or too corporate. Keep enough detail visible at whatever size you're using —
+don't cram a detailed illustration into a small space, use a simplified version instead. Keep a
+cohesive visual theme (consistent color tones, consistent character style) across a whole set.
+Common places they earn their keep: hero sections, onboarding flows, empty states, and error pages
+— exactly the moments where a screen would otherwise feel cold or broken.
+
+---
+
+## Chapter 19 — States: Making Things Feel Alive
+
+Every interactive element needs its full range of states designed, not just its default look:
+**default, hover, focus (a visible ring for keyboard users), active/pressed, disabled, loading,
+error, success, empty.** Skipping any of these isn't a shortcut — it's a gap someone will
+eventually fall into.
+
+- **Always communicate system status.** Spinners, progress bars, confirmations — a user should
+  never be left wondering whether something happened.
+- **Motion should mean something, not just look nice.** Material Design's framing is useful here:
+  motion should clarify a relationship or a transition, never just decorate.
+- **Give people an exit.** Undo, cancel, and a clear way to back out reduce the anxiety of taking
+  any action at all — people commit to things faster when they know a mistake isn't permanent.
+- **Support both the novice and the expert.** Keep the default path simple, but offer shortcuts —
+  keyboard commands, customization — for people who'll be back tomorrow and the day after.
+
+---
+
+## Chapter 20 — Design Systems & Tokens
+
+A Design Language System (DLS) is a centralized set of reusable components, standards, and
+guidelines that keeps a product's experience cohesive across every surface it touches. Material
+(Google), Carbon (IBM), Polaris (Shopify), Fluent (Microsoft), and Atlassian's own system are the
+benchmarks worth studying.
+
+**What a real DLS actually contains:**
+
+1. **Design principles** — 3–5 foundational, actionable rules (see Chapter 11).
+2. **A visual style guide** — color palette, typography, iconography, imagery, all documented once
+   rather than reinvented per screen.
+3. **A component library** — reusable, pre-designed *and* pre-coded — buttons, forms, modals,
+   cards, navigation.
+4. **Interaction patterns** — hover behavior, animation, loading states, transitions, gestures.
+5. **Accessibility standards** — contrast, text size, keyboard navigation, and screen-reader
+   support baked into every component from the start, not retrofitted.
+6. **Voice & tone guidelines** — optional, but common in mature systems (Polaris, Atlassian, and
+   Carbon all include one).
+
+**Why bother:** consistency builds trust and lowers cognitive load; reuse is faster than rebuilding
+from scratch every time, which lets new features ship faster; a shared vocabulary means designers,
+developers, and PMs stop miscommunicating about what a "primary button" is; and baking accessibility
+into the components once means every product built from them inherits it for free.
+
+### Tokens — the part that actually makes a system work
+
+- **Primitive tokens** are raw values — `blue-600 = #1E6FD9`, `space-16 = 16px`.
+- **Semantic tokens** are role-based and map to primitives — `color.action.primary`,
+  `color.text.default`, `color.status.error`, `space.md`.
+- **Component tokens** are specific to one component and map to semantic tokens —
+  `button.primary.bg`, `card.padding`.
+
+**The rule that makes the whole thing work:** components should only ever reference semantic or
+component tokens, *never* a hard-coded hex value or pixel number. When you want a dark theme or a
+new brand variant, you remap the tokens — you never touch the components themselves. This is the
+difference between a system that scales and one that requires a manual re-skin every time
+something changes.
+
+---
+
+## Chapter 21 — Visual Styles You'll Recognize
+
+Pick one direction and apply it consistently — mixing styles within one product is the single
+fastest way to make it look unplanned.
+
+- **Flat** — 2D, minimalist, no gradients or shadows or textures, bold vibrant colors, strict
+  grid-based layout.
+- **Material** (Google, 2014) — elevation communicated through shadows (a real z-axis hierarchy),
+  a consistent icon set, bold color used to carry information, card-based layouts on a responsive
+  grid.
+- **Neubrutalism** — large, heavy sans-serif type, thick black borders on cards and buttons,
+  high-contrast color, deliberately asymmetric or irregular grids that break the usual conventions
+  on purpose.
+- **Bauhaus** — geometric sans-serif type, primitive shapes (squares, triangles, circles), a
+  limited palette (primary red/yellow/blue, or black-and-white plus one accent), strict grid
+  structure.
+- **Neumorphism** — elements appear to melt into the background, soft shadows both inward and
+  outward, very low contrast and subtle color, a clean and uncluttered feel. (Worth noting: this
+  style is genuinely difficult to make accessible because of its low contrast by design — use it
+  carefully.)
+- **Glassmorphism** — a frosted-glass transparency effect where the background shows through,
+  paired with vibrant saturated backgrounds and minimalist, legible type. Common on blurred navbars,
+  hero sections, and glass-style icons.
+
+---
+
+## Chapter 22 — The Accessibility Numbers
+
+Everything in Chapter 8 was the *why*. Here's the *exactly how much* — the concrete, testable
+numbers that turn "make it accessible" from an opinion into something you can check with a tool.
+
+| What | The number |
+|---|---|
+| Normal text contrast | at least **4.5:1** against its background |
+| Large text contrast (≥24px, or ≥18.66px bold) | at least **3:1** |
+| AAA-level contrast (stricter standard) | 7:1 normal, 4.5:1 large |
+| UI components & meaningful graphics | at least **3:1** contrast |
+| Base body font size | at least **16px** |
+| Body line-height | **1.4–1.6** (tighter, 1.1–1.25, for large headings) |
+| Line length | **45–75 characters** |
+| Text resize support | up to **200%** without losing content or function |
+| Reflow width | content should reflow cleanly at **320px** |
+| Touch target size | **≥44×44px** (Apple) / **48×48dp** (Material), with ~8px between targets |
+| Base spacing unit | **8px** (4px for fine adjustments) |
+
+Four principles sit behind every one of these numbers — they spell **POUR**:
+
+- **Perceivable** — content and interface elements must be presentable in ways everyone can
+  perceive (text alternatives for non-text content, adaptable presentation).
+- **Operable** — interface components must be operable by everyone (full keyboard access, enough
+  time to act, nothing that triggers seizures).
+- **Understandable** — content and operation must be understandable (readable text, predictable
+  navigation, help recovering from errors).
+- **Robust** — content must work reliably across current and future assistive technologies.
+
+Use semantic HTML (`<header>`, `<nav>`, `<button>`) as the foundation, and only add ARIA roles or
+labels where plain HTML genuinely falls short. Test with a real contrast checker (WebAIM's is free
+and standard), run an automated audit (axe, WAVE, or Lighthouse), and do at least one real pass with
+a screen reader — automated tools catch maybe half of what actually matters.
+
+---
+
+# Part III — Quick Reference
+
+## The Cheat Sheet — every hard number in one place
+
+| Category | Value |
+|---|---|
+| Text contrast (normal) | ≥ 4.5:1 |
+| Text contrast (large) | ≥ 3:1 |
+| AAA contrast | 7:1 / 4.5:1 large |
+| UI component contrast | ≥ 3:1 |
+| Base body font size | ≥ 16px |
+| Body line-height | 1.4–1.6 |
+| Heading line-height | 1.1–1.25 |
+| Line length | 45–75 characters |
+| Text resize | up to 200% |
+| Reflow width | 320px |
+| Touch target | 44×44px (Apple) / 48×48dp (Material) |
+| Base spacing unit | 8px |
+| Spacing scale | 4·8·16·24·32·48·64 |
+| Type scale ratio | 1.2–1.25 modular |
+| Font families per product | 1–2 |
+| Grid columns | 12 (desktop default); avoid 7/9/11 |
+| Responsive columns | 4 / 8 / 12 (phone/tablet/desktop) |
+| Color balance | 60% dominant · 30% secondary · 10% accent |
+| Design principles | 3–5, action-verb phrased |
+| Usability test participants | 5–7 per round |
+| Research participants | 5–10 matching the user profile |
+| Icon frame sizes | 16 / 24 / 32px |
+| Icon palette | ≤ 3–4 colors |
+
+## The Master Pre-Ship Checklist
+
+**UX**
+- [ ] The user's goal for this screen is obvious within a few seconds.
+- [ ] The flow was mapped and tested before the wireframe was built.
+- [ ] Every screen passes a heuristic check against Nielsen's 10.
+- [ ] Errors explain what went wrong and how to fix it — never just "something went wrong."
+- [ ] Undo/cancel exists on every destructive or committing action.
+- [ ] The design was tested on real users at least once, at some fidelity.
+- [ ] It works with a keyboard alone, and with a screen reader.
+- [ ] It was designed mobile-first, not shrunk down from desktop as an afterthought.
+
+**UI**
+- [ ] One clear focal point per screen; scanning order matches task priority.
+- [ ] Layout is responsive; spacing follows the 8pt scale; navigation is identical across screens.
+- [ ] One documented type scale is used everywhere; body text is ≥16px; ≤2 font families.
+- [ ] Color is tokenized (primitive → semantic → component), not hard-coded.
+- [ ] No information is conveyed by color alone; palette passes a colorblindness simulation.
+- [ ] Every interactive element defines all its states, including a visible focus ring.
+- [ ] Motion is purposeful, never purely decorative.
+- [ ] Components are reused from a shared library, not redrawn per screen.
+- [ ] Contrast passes: 4.5:1 text, 3:1 large text and UI components.
+
+## Glossary
+
+- **Affordance** — a visual cue that tells someone how to interact with something (a button that
+  looks pressable, a handle that looks grippable).
+- **Design token** — a named, reusable design value (a color, a spacing unit, a font size) that
+  components reference instead of a hard-coded number.
+- **Fidelity** — how close a prototype is to the finished product; low-fidelity is a rough sketch,
+  high-fidelity is nearly indistinguishable from the real thing.
+- **Heuristic evaluation** — an expert review of a design against a known set of usability
+  principles, done without involving real users.
+- **Information architecture (IA)** — how content and features are organized and labeled so people
+  can find what they need.
+- **Persona** — a composite, research-based profile representing a real segment of your users.
+- **Semantic token** — a design token named for its *role* (`color.text.error`) rather than its raw
+  value (`#D64545`), so the same role can point to different values in light vs. dark mode.
+- **Usability heuristic** — a general, well-established rule of thumb for what makes an interface
+  easy to use (see Nielsen's 10 in Chapter 4).
+- **Wireframe** — a low-detail skeleton of a screen showing structure and content placement, with
+  no visual design applied yet.
+- **WCAG** — Web Content Accessibility Guidelines, the standard this book's accessibility numbers
+  are drawn from.
+
+---
+
+## Where this book comes from
+
+This is a distillation, not a replacement, for its three sources — *The Ultimate Handbook of
+UI/UX Product Design* (Lise Pilot), *UX and UI Strategy: A Step-by-Step Guide* (Pamala Deacon), and
+*Roots of UI/UX Design* (Elisa Paduraru). Numbers and named systems (Material, WCAG, Apple HIG,
+Carbon) are the sources' own citations of those external standards, reproduced here as the
+enforceable defaults they point to. This version exists to be read start to finish and actually
+retained — the source-level detail lives in `.claude/skills/ui-design/` and
+`.claude/skills/ux-design/` for when an agent needs to go deeper than a chapter summary.

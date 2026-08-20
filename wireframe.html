@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Layout Wireframe — Marketplace Home & Gig Page</title>
+<style>
+  :root{
+    --line:#9aa0a6;
+    --line-soft:#c7cbd1;
+    --fill:#eef0f2;
+    --fill-strong:#dfe3e7;
+    --ink:#3c4043;
+    --ink-soft:#6b7075;
+    --accent:#5f6368;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:'Courier New', ui-monospace, monospace;
+    background:#f6f7f8;
+    color:var(--ink);
+  }
+  .page-tabs{
+    display:flex;
+    gap:2px;
+    background:#dcdfe2;
+    padding:12px 24px 0;
+    position:sticky;
+    top:0;
+    z-index:50;
+  }
+  .page-tabs button{
+    font-family:inherit;
+    font-size:13px;
+    letter-spacing:.03em;
+    padding:10px 20px;
+    border:1px solid var(--line);
+    border-bottom:none;
+    background:#eceef0;
+    color:var(--ink-soft);
+    cursor:pointer;
+    border-radius:4px 4px 0 0;
+  }
+  .page-tabs button.active{
+    background:#fff;
+    color:var(--ink);
+    font-weight:700;
+  }
+  .doc{
+    max-width:1180px;
+    margin:0 auto;
+    padding:28px 24px 80px;
+  }
+  .view{display:none;}
+  .view.active{display:block;}
+
+  .wf-box{
+    border:1.5px dashed var(--line);
+    background:var(--fill);
+    border-radius:2px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:var(--ink-soft);
+    font-size:12px;
+    line-height:1.4;
+    padding:8px;
+  }
+  .wf-box.solid{ border-style:solid; }
+  .wf-box.strong{ background:var(--fill-strong); }
+  .label{
+    font-size:10px;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    color:var(--ink-soft);
+    margin:0 0 4px;
+  }
+  .section{
+    margin-bottom:6px;
+    padding:14px 0 6px;
+  }
+  .section-title{
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:.1em;
+    color:#8a9099;
+    margin:0 0 8px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .section-title::after{
+    content:'';
+    flex:1;
+    height:1px;
+    background:var(--line-soft);
+  }
+
+  /* ---------- HOMEPAGE ---------- */
+  .nav{
+    display:grid;
+    grid-template-columns:auto auto 1fr auto auto auto;
+    gap:12px;
+    align-items:center;
+    height:56px;
+    border:1.5px solid var(--line);
+    padding:0 16px;
+    background:#fff;
+  }
+  .nav .logo{ height:32px; width:88px; font-weight:700; }
+  .nav .cat-menu{ height:32px; width:120px; font-size:11px; }
+  .nav .search{ height:34px; font-size:11px; }
+  .nav .link{ height:30px; width:76px; font-size:11px; }
+  .nav .link.cta{ background:var(--ink); color:#fff; border-style:solid; }
+
+  .hero{
+    height:360px;
+    margin-top:10px;
+    position:relative;
+    background:var(--fill-strong);
+    border:1.5px solid var(--line);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:14px;
+    text-align:center;
+  }
+  .hero .headline{ font-size:22px; font-weight:700; color:var(--ink); }
+  .hero .searchbar{
+    width:520px; max-width:80%; height:46px;
+    background:#fff; border:1.5px solid var(--line);
+    font-size:11px;
+  }
+  .hero .chips{ display:flex; gap:8px; flex-wrap:wrap; justify-content:center; }
+  .chip{ height:26px; padding:0 12px; border:1px solid var(--line); font-size:10px; background:#fff; }
+
+  .trust-row{
+    display:flex; gap:14px; height:46px; margin-top:8px;
+  }
+  .trust-row .wf-box{ flex:1; font-size:10px; }
+
+  .grid-9{
+    display:grid;
+    grid-template-columns:repeat(9,1fr);
+    gap:8px;
+  }
+  .grid-9 .wf-box{ height:64px; font-size:10px; }
+
+  .grid-7{
+    display:grid;
+    grid-template-columns:repeat(7,1fr);
+    gap:8px;
+  }
+  .grid-7 .wf-box{ height:96px; font-size:10px; }
+
+  .footer-cols{
+    display:grid;
+    grid-template-columns:1.2fr repeat(5,1fr);
+    gap:16px;
+  }
+  .footer-cols .wf-box{
+    height:150px; align-items:flex-start; justify-content:flex-start;
+    text-align:left; padding:10px;
+  }
+  .footer-bottom{
+    height:40px; margin-top:8px;
+  }
+
+  /* ---------- GIG PAGE ---------- */
+  .breadcrumb{ height:28px; }
+  .breadcrumb .wf-box{ font-size:10px; justify-content:flex-start; padding-left:12px; }
+
+  .gig-grid{
+    display:grid;
+    grid-template-columns:1fr 340px;
+    gap:24px;
+    margin-top:10px;
+  }
+  .gig-title{ height:50px; margin-bottom:10px; }
+  .gig-seller-strip{ height:40px; margin-bottom:14px; }
+  .gig-seller-strip .wf-box{ justify-content:flex-start; gap:10px; padding-left:12px; font-size:10px;}
+  .gig-gallery{ height:340px; margin-bottom:10px; }
+  .gallery-thumbs{ display:grid; grid-template-columns:repeat(5,1fr); gap:6px; margin-bottom:20px; }
+  .gallery-thumbs .wf-box{ height:52px; font-size:9px; }
+
+  .about-seller{ height:150px; margin-bottom:20px; }
+  .about-seller .wf-box{ align-items:flex-start; justify-content:flex-start; text-align:left; padding:12px; }
+
+  .desc-block{ height:120px; margin-bottom:20px; }
+  .desc-block .wf-box{ align-items:flex-start; justify-content:flex-start; text-align:left; padding:12px; }
+
+  .tabs-row{ display:flex; gap:6px; height:32px; margin-bottom:10px; }
+  .tabs-row .wf-box{ flex:1; font-size:10px; }
+
+  .faq-list{ display:flex; flex-direction:column; gap:6px; margin-bottom:20px; }
+  .faq-list .wf-box{ height:36px; justify-content:flex-start; padding-left:12px; font-size:10px; }
+
+  .reviews-summary{ height:70px; margin-bottom:10px; }
+  .review-item{ height:80px; margin-bottom:8px; }
+  .review-item .wf-box{ align-items:flex-start; justify-content:flex-start; text-align:left; padding:10px; }
+
+  /* sidebar */
+  .sidebar{ display:flex; flex-direction:column; gap:14px; }
+  .package-tabs{ display:flex; gap:4px; height:34px; }
+  .package-tabs .wf-box{ flex:1; font-size:10px; }
+  .package-card{ height:280px; }
+  .package-card .wf-box{
+    flex-direction:column; align-items:flex-start; justify-content:flex-start;
+    text-align:left; padding:14px; gap:6px;
+  }
+  .pkg-row{ width:100%; display:flex; justify-content:space-between; font-size:10px; }
+  .cta-btn{ height:40px; }
+  .cta-btn .wf-box{ background:var(--ink); color:#fff; border-style:solid; font-size:11px; font-weight:700;}
+  .contact-btn{ height:36px; }
+  .sidebar-note{ height:60px; }
+
+  .annot{
+    font-size:10px;
+    color:#b0432e;
+    margin-top:2px;
+    font-style:italic;
+  }
+</style>
+</head>
+<body>
+
+<div class="page-tabs">
+  <button class="active" onclick="showView('home', this)">Homepage</button>
+  <button onclick="showView('gig', this)">Gig Page</button>
+</div>
+
+<div class="doc">
+
+  <!-- ============ HOMEPAGE WIREFRAME ============ -->
+  <div id="home" class="view active">
+
+    <div class="section">
+      <p class="section-title">Top Nav</p>
+      <div class="nav">
+        <div class="wf-box solid logo">LOGO</div>
+        <div class="wf-box cat-menu">Browse Categories ▾</div>
+        <div class="wf-box search">Search bar (full width, flexible)</div>
+        <div class="wf-box link">Become Seller</div>
+        <div class="wf-box link">Sign in</div>
+        <div class="wf-box link cta">Join</div>
+      </div>
+      <p class="annot">Fixed height bar · logo left · mega-menu categories · search grows to fill · auth links right</p>
+    </div>
+
+    <div class="section">
+      <p class="section-title">Hero</p>
+      <div class="hero">
+        <div class="headline">[ Value-prop headline, 2 lines ]</div>
+        <div class="wf-box searchbar">Search input + submit button</div>
+        <div class="chips">
+          <div class="chip">popular tag</div><div class="chip">popular tag</div>
+          <div class="chip">popular tag</div><div class="chip">popular tag</div>
+        </div>
+      </div>
+      <p class="annot">Full-bleed background (video/image) · centered stack: headline → search → quick-link chips</p>
+    </div>
+
+    <div class="section">
+      <p class="section-title">Trust Bar</p>
+      <div class="trust-row">
+        <div class="wf-box">logo</div><div class="wf-box">logo</div><div class="wf-box">logo</div>
+        <div class="wf-box">logo</div><div class="wf-box">logo</div><div class="wf-box">logo</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <p class="section-title">Category Pills (9-up)</p>
+      <div class="grid-9">
+        <div class="wf-box">icon<br>Programming</div>
+        <div class="wf-box">icon<br>Design</div>
+        <div class="wf-box">icon<br>Marketing</div>
+        <div class="wf-box">icon<br>Writing</div>
+        <div class="wf-box">icon<br>Video</div>
+        <div class="wf-box">icon<br>AI</div>
+        <div class="wf-box">icon<br>Music</div>
+        <div class="wf-box">icon<br>Business</div>
+        <div class="wf-box">icon<br>Consulting</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <p class="section-title">Popular Services (7-up card row)</p>
+      <div class="grid-7">
+        <div class="wf-box">thumb<br>service name</div>
+        <div class="wf-box">thumb<br>service name</div>
+        <div class="wf-box">thumb<br>service name</div>
+        <div class="wf-box">thumb<br>service name</div>
+        <div class="wf-box">thumb<br>service name</div>
+        <div class="wf-box">thumb<br>service name</div>
+        <div class="wf-box">thumb<br>service name</div>
+      </div>
+      <p class="annot">Horizontally scrollable on mobile; equal-width cards on desktop</p>
+    </div>
+
+    <div class="section">
+      <p class="section-title">Footer</p>
+      <div class="footer-cols">
+        <div class="wf-box"><div><strong>Categories</strong><br>list of 14 links</div></div>
+        <div class="wf-box"><div><strong>For Clients</strong><br>6 links</div></div>
+        <div class="wf-box"><div><strong>For Freelancers</strong><br>5 links</div></div>
+        <div class="wf-box"><div><strong>Business</strong><br>8 links</div></div>
+        <div class="wf-box"><div><strong>Company</strong><br>12 links</div></div>
+        <div class="wf-box"><div><strong>Social icons</strong><br>6 icons</div></div>
+      </div>
+      <div class="footer-bottom wf-box strong">© copyright · language / currency selector · legal links</div>
+    </div>
+
+  </div>
+
+  <!-- ============ GIG PAGE WIREFRAME ============ -->
+  <div id="gig" class="view">
+
+    <div class="section">
+      <p class="section-title">Nav (same as home, condensed)</p>
+      <div class="nav">
+        <div class="wf-box solid logo">LOGO</div>
+        <div class="wf-box cat-menu">Browse Categories ▾</div>
+        <div class="wf-box search">Search bar</div>
+        <div class="wf-box link">Orders</div>
+        <div class="wf-box link">Inbox</div>
+        <div class="wf-box link cta">Profile</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="breadcrumb wf-box">Category / Subcategory / Sub-subcategory</div>
+    </div>
+
+    <div class="gig-grid">
+      <!-- LEFT: main content -->
+      <div>
+        <div class="gig-title wf-box strong">Gig title — "I will do [service] for [outcome]" (h1, 2 lines max)</div>
+
+        <div class="gig-seller-strip wf-box">
+          <span>avatar ○</span><span>seller name</span><span>★ rating (count)</span><span>level badge</span>
+        </div>
+
+        <p class="section-title">Media Gallery</p>
+        <div class="gig-gallery wf-box strong">Main image / video preview player</div>
+        <div class="gallery-thumbs">
+          <div class="wf-box">thumb 1</div><div class="wf-box">thumb 2</div>
+          <div class="wf-box">thumb 3</div><div class="wf-box">thumb 4</div>
+          <div class="wf-box">thumb 5</div>
+        </div>
+
+        <p class="section-title">About This Gig</p>
+        <div class="desc-block wf-box">Long-form description text block (rich text, bullet points)</div>
+
+        <p class="section-title">About The Seller</p>
+        <div class="about-seller wf-box">
+          large avatar · name · title · stats row (response time, orders, member since) · short bio paragraph · contact button
+        </div>
+
+        <p class="section-title">Compare Packages / FAQ Tabs</p>
+        <div class="tabs-row">
+          <div class="wf-box">Compare Packages</div>
+          <div class="wf-box">FAQ</div>
+          <div class="wf-box">Reviews</div>
+        </div>
+        <div class="faq-list">
+          <div class="wf-box">▸ Question 1</div>
+          <div class="wf-box">▸ Question 2</div>
+          <div class="wf-box">▸ Question 3</div>
+        </div>
+
+        <p class="section-title">Reviews</p>
+        <div class="reviews-summary wf-box">overall rating breakdown · star histogram · filter/sort controls</div>
+        <div class="review-item wf-box">avatar · reviewer name · rating · date — review text (2–3 lines) · seller reply (indented, optional)</div>
+        <div class="review-item wf-box">avatar · reviewer name · rating · date — review text (2–3 lines)</div>
+      </div>
+
+      <!-- RIGHT: sticky sidebar -->
+      <div class="sidebar">
+        <p class="section-title">Order Panel (sticky)</p>
+        <div class="package-tabs">
+          <div class="wf-box">Basic</div>
+          <div class="wf-box">Standard</div>
+          <div class="wf-box">Premium</div>
+        </div>
+        <div class="package-card wf-box">
+          <div class="pkg-row"><span>Package name</span><span>$ price</span></div>
+          <div>Package description, 2 lines</div>
+          <div class="pkg-row"><span>⏱ delivery time</span><span>↻ revisions</span></div>
+          <div>✓ feature 1</div>
+          <div>✓ feature 2</div>
+          <div>✓ feature 3</div>
+        </div>
+        <div class="cta-btn wf-box">Continue ($price)</div>
+        <div class="contact-btn wf-box">Contact Seller</div>
+        <div class="sidebar-note wf-box">trust note: "X people ordered this in past month" / secure-payment note</div>
+      </div>
+    </div>
+
+    <div class="section" style="margin-top:24px;">
+      <p class="section-title">Related Gigs Carousel</p>
+      <div class="grid-7">
+        <div class="wf-box">card</div><div class="wf-box">card</div><div class="wf-box">card</div>
+        <div class="wf-box">card</div><div class="wf-box">card</div><div class="wf-box">card</div>
+        <div class="wf-box">card</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <p class="section-title">Footer (same as home)</p>
+      <div class="footer-cols">
+        <div class="wf-box"><div><strong>Categories</strong></div></div>
+        <div class="wf-box"><div><strong>For Clients</strong></div></div>
+        <div class="wf-box"><div><strong>For Freelancers</strong></div></div>
+        <div class="wf-box"><div><strong>Business</strong></div></div>
+        <div class="wf-box"><div><strong>Company</strong></div></div>
+        <div class="wf-box"><div><strong>Social</strong></div></div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+function showView(id, btn){
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+  document.querySelectorAll('.page-tabs button').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+
+</body>
+</html>

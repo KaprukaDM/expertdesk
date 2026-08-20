@@ -1,0 +1,129 @@
+<!doctype html><html><head><meta charset="utf-8">
+<title>Ceylon Spice Traders — SEO Brand Study</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap">
+<style>
+  :root {
+    --bg:#FFFFFF; --fg:#002D2D; --primary:#008060; --bright:#95BF47; --olive:#5E8E3E;
+    --muted:#5B6F63; --secondary:#E9F3EA; --accent:#EFF6E1; --border:rgba(0,45,45,.14);
+    --critical:#D7373F; --critical-soft:#FBE7E7; --warning:#A66E00; --warning-soft:#FFF3D2;
+    --good:#1C7C54; --good-soft:#DCEEE8; --surface:#FAFDF9;
+  }
+  @page { size: A4; margin: 12mm; }
+  * { box-sizing:border-box; max-width:100%; }
+  html, body { max-width: 100%; overflow-x: hidden; }
+  body { font-family:'Inter',system-ui,sans-serif; color:var(--fg); background:var(--bg); margin:0; line-height:1.6; word-wrap:break-word; overflow-wrap:break-word; }
+  .page { width:100%; max-width:680px; margin:0 auto; padding:0 1rem 3rem; }
+  .hero { background:linear-gradient(135deg,#008060 0%,#5E8E3E 55%,#95BF47 100%); margin:0 -1rem 2rem; padding:2.4rem 1.25rem 1.9rem; border-radius:0 0 20px 20px; color:#fff; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  .hero .eyebrow { font-size:0.72rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:#EFF6E1; }
+  .hero h1 { font-size:1.8rem; font-weight:800; margin:0.4rem 0 0.5rem; letter-spacing:-0.01em; }
+  .hero p { margin:0; color:rgba(255,255,255,0.92); font-size:0.98rem; max-width:52ch; }
+
+  .score-wrap { display:flex; align-items:center; gap:1.3rem; background:var(--surface); border:1px solid var(--border); border-radius:18px; padding:1.4rem 1.5rem; margin:0 0 2rem; flex-wrap:wrap; }
+  .score-dial { flex:none; width:110px; height:110px; border-radius:50%; background: conic-gradient(#D7373F 0% 36%, #EFF6E1 36% 100%); display:flex; align-items:center; justify-content:center; position:relative; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  .score-dial::before { content:""; position:absolute; inset:11px; background:#fff; border-radius:50%; }
+  .score-dial .dial-text { position:relative; display:flex; flex-direction:column; align-items:center; line-height:1; }
+  .score-dial .num { font-family:'JetBrains Mono',monospace; font-size:1.7rem; font-weight:700; color:var(--fg); }
+  .score-dial .denom { font-size:0.65rem; color:var(--muted); margin-top:0.15rem; }
+  .score-text { flex:1; min-width:220px; }
+  .score-text h2 { margin:0 0 0.35rem; font-size:1.1rem; color:var(--critical); }
+  .score-text p { margin:0; font-size:0.87rem; color:var(--muted); max-width:40ch; }
+
+  h2.section { font-size:1.05rem; font-weight:750; margin:2rem 0 0.9rem; display:flex; align-items:center; gap:0.55rem; }
+  h2.section .dot { width:10px; height:10px; border-radius:3px; background:var(--primary); display:inline-block; }
+
+  .findings { display:flex; flex-direction:column; gap:0.6rem; margin-bottom:0.5rem; }
+  .finding { display:flex; gap:0.75rem; align-items:flex-start; background:var(--surface); border:1px solid var(--border); border-left:4px solid var(--bright); border-radius:4px 10px 10px 4px; padding:0.75rem 1rem; }
+  .finding .n { font-family:'JetBrains Mono',monospace; font-weight:700; color:var(--olive); font-size:0.85rem; flex:none; }
+  .finding p { margin:0; font-size:0.9rem; }
+
+  .swot { display:grid; grid-template-columns:1fr 1fr; gap:0.8rem; margin:0.5rem 0 0.5rem; }
+  .swot div { border-radius:12px; padding:0.9rem 1.05rem; font-size:0.85rem; line-height:1.5; }
+  .swot h4 { margin:0 0 0.35rem; font-size:0.72rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:800; }
+  .s { background:var(--good-soft); } .s h4 { color:var(--good); }
+  .w { background:var(--critical-soft); } .w h4 { color:var(--critical); }
+  .o { background:var(--accent); } .o h4 { color:#3A5220; }
+  .t { background:var(--warning-soft); } .t h4 { color:var(--warning); }
+
+  .fix-bars { margin:0.5rem 0 1.5rem; }
+  .fix-row { display:flex; align-items:center; gap:0.8rem; margin-bottom:0.65rem; }
+  .fix-row .lbl { flex:none; width:100px; font-size:0.82rem; font-weight:600; }
+  .fix-row .bar-track { flex:1; height:14px; background:var(--secondary); border-radius:999px; overflow:hidden; }
+  .fix-row .bar-fill { height:100%; border-radius:999px; }
+  .fix-row .count { flex:none; font-family:'JetBrains Mono',monospace; font-weight:700; font-size:0.85rem; width:2.5rem; text-align:right; }
+
+  .score-table { width:100%; table-layout:fixed; border-collapse:collapse; margin:0.5rem 0 1.5rem; font-size:0.85rem; }
+  .score-table th, .score-table td { padding:0.6rem 0.7rem; text-align:left; word-break:break-word; }
+  .score-table thead th { background:var(--secondary); color:var(--olive); font-size:0.68rem; text-transform:uppercase; letter-spacing:0.05em; border-radius:8px 8px 0 0; }
+  .score-table tbody tr { background:var(--surface); }
+  .score-table tbody tr:nth-child(2) { background:#fff; border:2px solid var(--primary); }
+  .score-table td.arrow { font-family:'JetBrains Mono',monospace; font-weight:700; }
+  .score-table td.tier { font-weight:700; }
+
+  .cta-band { text-align:center; background:linear-gradient(135deg,#008060,#5E8E3E); color:#fff; border-radius:18px; padding:1.75rem 1.5rem; margin-top:2rem; }
+  .cta-band h3 { margin:0 0 0.4rem; font-size:1.15rem; }
+  .cta-band p { margin:0; font-size:0.9rem; color:rgba(255,255,255,0.9); }
+
+  footer { text-align:center; font-size:0.76rem; color:var(--muted); margin-top:2rem; }
+  @media print { .hero, .cta-band { -webkit-print-color-adjust:exact; print-color-adjust:exact; } }
+</style></head>
+<body>
+<div class="page">
+
+  <div class="hero">
+    <span class="eyebrow">Free SEO Brand Study</span>
+    <h1>Ceylon Spice Traders — Your SEO Ranking Study</h1>
+    <p>We audited your site the way we audit every site: through the lens of what actually moves ranking. Here's what we found.</p>
+  </div>
+
+  <div class="score-wrap">
+    <div class="score-dial"><div class="dial-text"><span class="num">36</span><span class="denom">/100</span></div></div>
+    <div class="score-text">
+      <h2>Ranking Opportunity Score — Significant Headroom</h2>
+      <p>Your blog content is genuinely better than anything your competitors publish — but stale technical debt and disconnected product data are actively blocking pages from ranking or winning rich results they're eligible for.</p>
+    </div>
+  </div>
+
+  <h2 class="section"><span class="dot" style="background:#008060;"></span>What we found</h2>
+  <div class="findings">
+    <div class="finding"><span class="n">01</span><p>112 of your 340 product pages are still carrying a "noindex" tag left over from a past site migration — Google can't rank a page it's been told not to index.</p></div>
+    <div class="finding"><span class="n">02</span><p>Your product schema exists but isn't connected to your real customer reviews — competitors are winning the star-rating search result you're eligible for but not getting.</p></div>
+    <div class="finding"><span class="n">03</span><p>You have zero Google Shopping presence despite having eligible products and a working store — an entire acquisition channel currently unused.</p></div>
+    <div class="finding"><span class="n">04</span><p>Your blog content is strong, but it has zero internal links to the products it's implicitly selling — the ranking value it builds isn't reaching your revenue pages.</p></div>
+    <div class="finding"><span class="n">05</span><p>You rank for your brand name and exact product names, but not for the category terms ("ceylon cinnamon sticks," "organic ceylon tea gift set") that actually drive search volume.</p></div>
+  </div>
+
+  <h2 class="section"><span class="dot" style="background:#95BF47;"></span>Quick SWOT</h2>
+  <div class="swot">
+    <div class="s"><h4>Strength</h4>Genuinely good blog content nobody else in your category has</div>
+    <div class="w"><h4>Weakness</h4>Technical debt and disconnected data blocking pages from ranking at all</div>
+    <div class="o"><h4>Opportunity</h4>Zero Shopping presence — a wide-open channel your competitors also haven't filled well</div>
+    <div class="t"><h4>Threat</h4>Competitors already winning star-rating results and gift-guide search placement you're eligible for</div>
+  </div>
+
+  <h2 class="section"><span class="dot" style="background:#A66E00;"></span>What we're recommending</h2>
+  <p style="font-size:0.88rem; color:var(--muted); margin:0 0 1rem;">We found <b style="color:var(--fg);">13 fixable issues</b>, ranked by ranking impact:</p>
+  <div class="fix-bars">
+    <div class="fix-row"><span class="lbl">Technical fixes</span><div class="bar-track"><div class="bar-fill" style="width:38.5%; background:#008060;"></div></div><span class="count">5</span></div>
+    <div class="fix-row"><span class="lbl">Page/content fixes</span><div class="bar-track"><div class="bar-fill" style="width:46.2%; background:#95BF47;"></div></div><span class="count">6</span></div>
+    <div class="fix-row"><span class="lbl">Link/authority</span><div class="bar-track"><div class="bar-fill" style="width:15.4%; background:#A66E00;"></div></div><span class="count">2</span></div>
+  </div>
+
+  <h2 class="section"><span class="dot" style="background:#D7373F;"></span>If you fix them — projected score</h2>
+  <table class="score-table">
+    <thead><tr><th>Package</th><th>Coverage</th><th>Projected Ranking Opportunity Score</th></tr></thead>
+    <tbody>
+      <tr><td class="tier">Basic</td><td>Technical fixes + core keyword targeting</td><td class="arrow">36 → ~50</td></tr>
+      <tr><td class="tier" style="color:var(--primary);">Standard ★</td><td>+ page/content fixes, backlink targets, GBP</td><td class="arrow" style="color:var(--primary);">36 → ~68</td></tr>
+      <tr><td class="tier">Premium</td><td>Full checklist + 6-month content plan</td><td class="arrow">36 → ~84</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:0.78rem; color:var(--muted); margin-top:-0.8rem;"><i>Directional projections based on which issue categories each package covers — not a guarantee, but a realistic range based on comparable sites.</i></p>
+
+  <div class="cta-band">
+    <h3>Your 3 options are attached</h3>
+    <p>Basic, Standard, and Premium — each scoped and priced for Ceylon Spice Traders specifically. Pick one and we get started.</p>
+  </div>
+
+  <footer>Ceylon Spice Traders SEO Brand Study — prepared as an example client report</footer>
+</div>
+</body></html>

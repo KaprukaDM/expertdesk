@@ -1,0 +1,192 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-display);
+  --font-heading: var(--font-display);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  /* Severity triad — separate from the brand accent so the two can never be confused. */
+  --color-critical: var(--critical);
+  --color-critical-soft: var(--critical-soft);
+  --color-warning: var(--warning);
+  --color-warning-soft: var(--warning-soft);
+  --color-good: var(--good);
+  --color-good-soft: var(--good-soft);
+  --color-surface-raised: var(--surface-raised);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+  /* Elevation scale — tinted with the foreground hue instead of flat black, so shadows read
+     as "this brand's shadow" rather than generic UI-kit default. Redefined per light/dark
+     below since a believable shadow tint and opacity differ completely between the two. */
+  --shadow-xs: var(--elevation-xs);
+  --shadow-sm: var(--elevation-sm);
+  --shadow-md: var(--elevation-md);
+  --shadow-lg: var(--elevation-lg);
+  --shadow-xl: var(--elevation-xl);
+}
+
+:root {
+  /* Brand palette: Shopify-style green — #008060 primary, #95BF47 bright accent, #5E8E3E
+     olive, #002D2D deep teal. Page background is pure white — brand tint lives in the
+     accents/chips, not the canvas. */
+  --background: #FFFFFF;
+  --foreground: #002D2D;
+  --card: #FFFFFF;
+  --card-foreground: #002D2D;
+  --popover: #FFFFFF;
+  --popover-foreground: #002D2D;
+  --primary: #008060;
+  --primary-foreground: #FFFFFF;
+  --secondary: #E9F3EA;
+  --secondary-foreground: #002D2D;
+  --muted: #E9F3EA;
+  --muted-foreground: #5B6F63;
+  --accent: #EFF6E1;
+  --accent-foreground: #3A5220;
+  --destructive: #D7373F;
+  --border: rgb(0 45 45 / 12%);
+  --input: rgb(0 45 45 / 16%);
+  --ring: #008060;
+  --chart-1: #008060;
+  --chart-2: #95BF47;
+  --chart-3: #5E8E3E;
+  --chart-4: #6B7280;
+  --chart-5: #D7373F;
+  --radius: 0.75rem;
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #002D2D;
+  --sidebar-primary: #008060;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #EFF6E1;
+  --sidebar-accent-foreground: #3A5220;
+  --sidebar-border: rgb(0 45 45 / 12%);
+  --sidebar-ring: #008060;
+
+  --critical: #D7373F;
+  --critical-soft: #FBE7E7;
+  --warning: #A66E00;
+  --warning-soft: #FFF3D2;
+  --good: #1C7C54;
+  --good-soft: #DCEEE8;
+
+  --surface-raised: #FAFDF9;
+  --elevation-xs: 0 1px 2px 0 rgb(0 45 45 / 4%);
+  --elevation-sm: 0 1px 3px 0 rgb(0 45 45 / 6%), 0 1px 2px -1px rgb(0 45 45 / 6%);
+  --elevation-md: 0 4px 8px -2px rgb(0 45 45 / 8%), 0 2px 4px -2px rgb(0 45 45 / 6%);
+  --elevation-lg: 0 12px 24px -6px rgb(0 45 45 / 12%), 0 4px 6px -4px rgb(0 45 45 / 6%);
+  --elevation-xl: 0 24px 48px -12px rgb(0 45 45 / 16%), 0 8px 16px -8px rgb(0 45 45 / 8%);
+}
+
+.dark {
+  /* Dark mode flips the primary action color to the bright accent green against the deep
+     teal background — the same teal-tile-with-green-mark pairing as the logo icon itself. */
+  --background: #002D2D;
+  --foreground: #EFF6E1;
+  --card: #0B3B3B;
+  --card-foreground: #EFF6E1;
+  --popover: #0B3B3B;
+  --popover-foreground: #EFF6E1;
+  --primary: #95BF47;
+  --primary-foreground: #002D2D;
+  --secondary: #0F3D3D;
+  --secondary-foreground: #EFF6E1;
+  --muted: #0F3D3D;
+  --muted-foreground: #9FBFB0;
+  --accent: #24361B;
+  --accent-foreground: #95BF47;
+  --destructive: #FF6B70;
+  --border: rgb(239 246 225 / 12%);
+  --input: rgb(239 246 225 / 16%);
+  --ring: #95BF47;
+  --chart-1: #95BF47;
+  --chart-2: #5E8E3E;
+  --chart-3: #008060;
+  --chart-4: #9FBFB0;
+  --chart-5: #FF6B70;
+  --sidebar: #0B3B3B;
+  --sidebar-foreground: #EFF6E1;
+  --sidebar-primary: #95BF47;
+  --sidebar-primary-foreground: #002D2D;
+  --sidebar-accent: #24361B;
+  --sidebar-accent-foreground: #95BF47;
+  --sidebar-border: rgb(239 246 225 / 12%);
+  --sidebar-ring: #95BF47;
+
+  --critical: #FF6B70;
+  --critical-soft: rgb(255 107 112 / 16%);
+  --warning: #F0A94E;
+  --warning-soft: rgb(240 169 78 / 16%);
+  --good: #34C79A;
+  --good-soft: rgb(52 199 154 / 16%);
+
+  --surface-raised: #103F3F;
+  /* Dark-mode shadows lean on near-black opacity rather than a hue tint — a colored shadow
+     reads as a glow/bug on dark backgrounds, not elevation. */
+  --elevation-xs: 0 1px 2px 0 rgb(0 0 0 / 20%);
+  --elevation-sm: 0 1px 3px 0 rgb(0 0 0 / 28%), 0 1px 2px -1px rgb(0 0 0 / 24%);
+  --elevation-md: 0 4px 8px -2px rgb(0 0 0 / 32%), 0 2px 4px -2px rgb(0 0 0 / 24%);
+  --elevation-lg: 0 12px 24px -6px rgb(0 0 0 / 40%), 0 4px 6px -4px rgb(0 0 0 / 28%);
+  --elevation-xl: 0 24px 48px -12px rgb(0 0 0 / 48%), 0 8px 16px -8px rgb(0 0 0 / 32%);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+  h1, h2, h3, h4 {
+    @apply font-heading tracking-[-0.015em];
+  }
+}
+
+@layer components {
+  /* Repeated verbatim across every section/list label in the app — one definition keeps the
+     "uppercase eyebrow" treatment from drifting between screens. */
+  .text-eyebrow {
+    @apply text-muted-foreground text-xs font-medium uppercase tracking-wide;
+  }
+}

@@ -99,6 +99,12 @@ export function RequestBrandStudyForm({
 
       {step === "intro" && (
         <>
+          {requestedPackage && (
+            <div className="border-primary/30 bg-secondary text-primary flex items-center gap-2 rounded-xl border px-3 py-2 text-sm font-medium">
+              <span className="bg-primary size-1.5 shrink-0 rounded-full" />
+              You selected: {requestedPackage}
+            </div>
+          )}
           <div className="space-y-1.5">
             <span className="bg-secondary text-primary flex size-9 items-center justify-center rounded-xl">
               <FileSearch className="size-4" />
@@ -135,6 +141,12 @@ export function RequestBrandStudyForm({
             <ArrowLeft className="size-3.5" />
             Back
           </button>
+          {requestedPackage && (
+            <div className="border-primary/30 bg-secondary text-primary flex items-center gap-2 rounded-xl border px-3 py-2 text-sm font-medium">
+              <span className="bg-primary size-1.5 shrink-0 rounded-full" />
+              You selected: {requestedPackage}
+            </div>
+          )}
           <div className="space-y-1.5">
             <span className="bg-secondary text-primary flex size-9 items-center justify-center rounded-xl">
               <ShieldCheck className="size-4" />
@@ -185,6 +197,12 @@ export function RequestBrandStudyForm({
             <ArrowLeft className="size-3.5" />
             Back
           </button>
+          {requestedPackage && (
+            <div className="border-primary/30 bg-secondary text-primary flex items-center gap-2 rounded-xl border px-3 py-2 text-sm font-medium">
+              <span className="bg-primary size-1.5 shrink-0 rounded-full" />
+              You selected: {requestedPackage}
+            </div>
+          )}
           <div className="space-y-1.5">
             <span className="bg-secondary text-primary flex size-9 items-center justify-center rounded-xl">
               <FileSearch className="size-4" />

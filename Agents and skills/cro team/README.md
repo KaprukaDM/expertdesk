@@ -32,15 +32,15 @@ cro-orchestrator  (lists the specialist roster, decides which
         │           this tier/request needs, dispatches them,
         │           assembles the final delivered package)
         │
-        ├── cro-funnel-auditor       — funnel audit, drop-offs, CTA/form fixes (all tiers)
-        ├── cro-ux-laws-auditor      — UX Laws Audit, ~50 usability/persuasion laws (Std/Prem)
-        ├── cro-ux-reviewer          — mobile+desktop UX, re-scan, heatmap if connected (Std/Prem)
-        ├── cro-tracking-auditor     — GA4 + tracking-setup audit (Premium)
+        ├── cro-funnel-auditor       — tracking check, funnel audit, drop-offs, CTA/form fixes (all tiers)
+        ├── cro-sins-auditor         — 7 Deadly Sins of CRO, fast pass/fail scan (all tiers)
+        ├── cro-ux-reviewer          — mobile+desktop UX vs. ~50 usability/persuasion laws, re-scan w/ lift analysis, heatmap if connected (Std/Prem)
+        ├── cro-tracking-auditor     — deep GA4 event/measurability audit (Premium)
         ├── cro-ab-test-strategist   — A/B test roadmap, 6 ideas (Premium)
         └── cro-competitor-benchmark — benchmark vs. 2 competitors (Premium)
 ```
 
-**Note on the UX swap**: heatmap/session-recording analysis used to be `cro-ux-reviewer`'s headline deliverable, but it silently degrades for any client without Hotjar/Clarity already connected. `cro-ux-laws-auditor` (cross-checking pages against ~50 established, citable UI/UX laws — Nielsen's heuristics, Laws of UX, Gestalt principles, Cialdini's persuasion principles, WCAG basics) is now the guaranteed Standard+ UX deliverable, since it never depends on external tooling. Heatmap analysis still runs, just as a bonus layer inside `cro-ux-reviewer` when the data happens to exist.
+**Note on the UX swap**: heatmap/session-recording analysis used to be `cro-ux-reviewer`'s headline deliverable, but it silently degrades for any client without Hotjar/Clarity already connected. The agent's UX Review is now evaluated against ~50 established, citable UI/UX laws (Nielsen's heuristics, Laws of UX, Gestalt principles, Cialdini's persuasion principles, WCAG basics — see the `ux-laws-audit` skill) as its core methodology, since that never depends on external tooling. Heatmap analysis still runs, just as a bonus layer when the data happens to exist. (This used to be a separate `cro-ux-laws-auditor` specialist auditing the same pages a second time — folded into `cro-ux-reviewer` since a UX review and a laws audit are the same page-level lens, not two deliverables.)
 
 Every finding, at every stage, is filtered through one question: **does this remove purchase friction, or build the trust needed to complete one?** That's the north star for the whole team, not just the research step.
 
@@ -52,10 +52,10 @@ Every finding, at every stage, is filtered through one question: **does this rem
 | 2 | `cro-brand-study-reporter` | [Free/Agents/reporter.md](Free/Agents/reporter.md) | Free | Compiles research into Internal + Client reports |
 | 3 | `brand-study` | *(cross-service — see project root, not part of this team)* | Free | Turns the Client Report into 3 tiered package options |
 | 4 | `cro-orchestrator` | [Paid/Agents/orchestrator.md](Paid/Agents/orchestrator.md) | Paid | Lists roster, decides scope, dispatches, assembles |
-| 5 | `cro-funnel-auditor` | [Paid/Agents/funnel-auditor.md](Paid/Agents/funnel-auditor.md) | Paid | Funnel audit, drop-off points, CTA/form fixes |
-| 6 | `cro-ux-laws-auditor` | [Paid/Agents/ux-laws-auditor.md](Paid/Agents/ux-laws-auditor.md) | Paid | UX Laws Audit — ~50 usability/persuasion laws, no tool dependency |
-| 7 | `cro-ux-reviewer` | [Paid/Agents/ux-reviewer.md](Paid/Agents/ux-reviewer.md) | Paid | Mobile/desktop UX review, re-scan, heatmap bonus if connected |
-| 8 | `cro-tracking-auditor` | [Paid/Agents/tracking-auditor.md](Paid/Agents/tracking-auditor.md) | Paid | GA4 + tracking-setup audit |
+| 5 | `cro-funnel-auditor` | [Paid/Agents/funnel-auditor.md](Paid/Agents/funnel-auditor.md) | Paid | Tracking-presence check, funnel audit, drop-off points, CTA/form fixes |
+| 6 | `cro-sins-auditor` | [Paid/Agents/sins-auditor.md](Paid/Agents/sins-auditor.md) | Paid | 7 Deadly Sins of CRO — fast pass/fail scan |
+| 7 | `cro-ux-reviewer` | [Paid/Agents/ux-reviewer.md](Paid/Agents/ux-reviewer.md) | Paid | Mobile/desktop UX review vs. ~50 usability/persuasion laws, re-scan w/ lift analysis, heatmap bonus if connected |
+| 8 | `cro-tracking-auditor` | [Paid/Agents/tracking-auditor.md](Paid/Agents/tracking-auditor.md) | Paid | Deep GA4 event/measurability audit (beyond the presence check every tier gets) |
 | 9 | `cro-ab-test-strategist` | [Paid/Agents/ab-test-strategist.md](Paid/Agents/ab-test-strategist.md) | Paid | A/B test roadmap |
 | 10 | `cro-competitor-benchmark` | [Paid/Agents/competitor-benchmark.md](Paid/Agents/competitor-benchmark.md) | Paid | Competitor benchmark |
 
@@ -67,7 +67,8 @@ Every finding, at every stage, is filtered through one question: **does this rem
 | `cro-brand-study-reporter` | [Free/Skills/cro-brand-study-reporter-skill.md](Free/Skills/cro-brand-study-reporter-skill.md) | Free | The reporter agent |
 | `cro-team` | [Paid/Skills/cro-team-skill.md](Paid/Skills/cro-team-skill.md) | Paid | The orchestrator |
 | `cro-fulfillment` | [Paid/Skills/cro-fulfillment-skill.md](Paid/Skills/cro-fulfillment-skill.md) | Paid | Every fulfillment specialist (shared deliverable spec) |
-| `ux-laws-audit` | [Paid/Skills/ux-laws-audit-skill.md](Paid/Skills/ux-laws-audit-skill.md) | Paid | `cro-ux-laws-auditor` |
+| `ux-laws-audit` | [Paid/Skills/ux-laws-audit-skill.md](Paid/Skills/ux-laws-audit-skill.md) | Paid | `cro-ux-reviewer` |
+| `cro-seven-sins` | [Paid/Skills/cro-seven-sins-skill.md](Paid/Skills/cro-seven-sins-skill.md) | Paid | `cro-sins-auditor` |
 
 The vendored marketingskills skills each specialist leans on (`cro`, `ab-testing`, `analytics`, `competitor-profiling`, `copywriting`, `popups`) live in `.claude/skills/` but aren't individually catalogued here — read them directly.
 
@@ -76,7 +77,7 @@ The vendored marketingskills skills each specialist leans on (`cro`, `ab-testing
 | Pipeline | Command | Dispatches |
 |---|---|---|
 | Brand Study (Free) | `/cro-brand-study` | `cro-brand-study` → `cro-brand-study-reporter` → `brand-study` |
-| Basic (Paid) | `/cro-basic` | `cro-orchestrator`, locked to `cro-funnel-auditor` only |
+| Basic (Paid) | `/cro-basic` | `cro-orchestrator`, locked to `cro-funnel-auditor` + `cro-sins-auditor` |
 | Standard (Paid) | `/cro-standard` | `cro-orchestrator`, locked to the Standard 3-specialist set |
 | Premium (Paid) | `/cro-premium` | `cro-orchestrator`, locked to the full 6-specialist set |
 

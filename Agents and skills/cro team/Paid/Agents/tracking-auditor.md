@@ -2,6 +2,6 @@
 
 **Definition:** `.claude/agents/cro-tracking-auditor.md`
 
-Produces the **GA4 + Tracking Setup Audit** deliverable — Premium tier only. Checks whether conversion tracking is installed at all (headline finding if not), which events fire, and whether they map to actual purchase-funnel steps. Leans on the vendored `analytics` marketingskills skill.
+Produces the **GA4 + Tracking Setup Audit** deliverable — Premium tier only, the deep version. Every tier already gets a basic tracking-presence check from `cro-funnel-auditor`; this goes further into which events fire, whether they map to actual purchase-funnel steps, and whether the data supports the A/B test roadmap's measurement needs. Leans on the vendored `analytics` marketingskills skill.
 
 Tools: `Read, Grep, Glob, Write, WebFetch`

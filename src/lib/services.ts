@@ -136,7 +136,9 @@ const STATIC_SERVICES: Service[] = [
         deliveryDays: 4,
         revisions: "1 revision",
         features: [
+          "Tool stack check — confirms GA4/tracking + heatmap tools are actually installed, with recommendations for what's missing",
           "CRO audit of your top 3 pages (landing, product, checkout)",
+          "7 Deadly Sins of CRO — quick scan for the most common conversion killers",
           "Top 5 drop-off points, ranked by impact",
           "CTA + form quick fixes",
           "Written fix guide",
@@ -152,9 +154,8 @@ const STATIC_SERVICES: Service[] = [
         features: [
           "Everything in Basic",
           "Full funnel review: landing → checkout, up to 6 pages",
-          "UX Laws Audit — key pages checked against 50+ usability & persuasion principles",
-          "Mobile + desktop UX review",
-          "1 verification re-scan after fixes",
+          "Mobile + desktop UX review — checked against 50+ usability & persuasion principles",
+          "1 verification re-scan after fixes, with lift analysis",
         ],
       },
       {

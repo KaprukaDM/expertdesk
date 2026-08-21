@@ -14,19 +14,20 @@ The fulfillment step that runs **after** the customer has picked a package and t
 |---|---|---|
 | `cro-team` | [Skills/cro-team-skill.md](Skills/cro-team-skill.md) | `cro-orchestrator` |
 | `cro-fulfillment` | [Skills/cro-fulfillment-skill.md](Skills/cro-fulfillment-skill.md) | Every fulfillment specialist (shared deliverable spec) |
-| `ux-laws-audit` | [Skills/ux-laws-audit-skill.md](Skills/ux-laws-audit-skill.md) | `cro-ux-laws-auditor` |
+| `ux-laws-audit` | [Skills/ux-laws-audit-skill.md](Skills/ux-laws-audit-skill.md) | `cro-ux-reviewer` |
+| `cro-seven-sins` | [Skills/cro-seven-sins-skill.md](Skills/cro-seven-sins-skill.md) | `cro-sins-auditor` |
 
 ## Which specialists actually run here — scoped by tier
 
 | Tier | Specialists dispatched | Doc | Count |
 |---|---|---|---|
-| **Basic** | `cro-funnel-auditor` | [Agents/funnel-auditor.md](Agents/funnel-auditor.md) | 1 |
-| **Standard** | Basic's set + `cro-ux-laws-auditor`, `cro-ux-reviewer` | + [Agents/ux-laws-auditor.md](Agents/ux-laws-auditor.md), [Agents/ux-reviewer.md](Agents/ux-reviewer.md) | 3 |
+| **Basic** | `cro-funnel-auditor` (incl. tracking-presence check), `cro-sins-auditor` | [Agents/funnel-auditor.md](Agents/funnel-auditor.md), [Agents/sins-auditor.md](Agents/sins-auditor.md) | 2 |
+| **Standard** | Basic's set + `cro-ux-reviewer` | + [Agents/ux-reviewer.md](Agents/ux-reviewer.md) | 3 |
 | **Premium** | Standard's set + `cro-tracking-auditor`, `cro-ab-test-strategist`, `cro-competitor-benchmark` | + [Agents/tracking-auditor.md](Agents/tracking-auditor.md), [Agents/ab-test-strategist.md](Agents/ab-test-strategist.md), [Agents/competitor-benchmark.md](Agents/competitor-benchmark.md) | 6 |
 
-All 6 specialists are project-built (not vendored) — each leans on a vendored marketingskills skill for methodology (see each doc). `cro-funnel-auditor` runs first among dependent specialists; `cro-ux-reviewer`'s re-scan and `cro-ab-test-strategist`'s roadmap both reference its findings. `cro-ux-laws-auditor` is independent — it audits pages against fixed laws, not against the funnel audit's findings.
+All 6 specialists are project-built (not vendored) — each leans on a vendored marketingskills skill for methodology (see each doc). `cro-funnel-auditor` runs first among dependent specialists; `cro-ux-reviewer`'s re-scan and `cro-ab-test-strategist`'s roadmap both reference its findings.
 
-**Why `cro-ux-laws-auditor` exists**: heatmap/session-recording analysis used to be the headline Standard-tier UX deliverable, but it silently degrades to "install a tool" for any client without Hotjar/Clarity already connected. The UX Laws Audit (cross-checking key pages against ~50 established, citable UI/UX laws) never depends on external tooling, so it's now the guaranteed part — heatmap analysis still runs, just as a bonus inside `cro-ux-reviewer` when the data exists.
+**Why `cro-ux-reviewer` is evaluated against ~50 UX laws**: heatmap/session-recording analysis used to be the headline Standard-tier UX deliverable, but it silently degrades to "install a tool" for any client without Hotjar/Clarity already connected. Cross-checking key pages against ~50 established, citable UI/UX laws never depends on external tooling, so that's now the guaranteed part of the UX Review — heatmap analysis still runs, just as a bonus when the data exists. (This used to be a separate `cro-ux-laws-auditor` specialist auditing the same pages a second time; folded into `cro-ux-reviewer` since they're the same page-level lens.)
 
 ## Who does what
 

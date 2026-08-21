@@ -35,6 +35,35 @@ Perceivable · Operable · Understandable · Robust — flag anything that would
 
 That's ~45-50 named, citable principles across 6 categories — the "50 laws" scope.
 
+## Page-Type Playbooks (e-commerce)
+
+Concrete best practices for the pages that actually make or break a purchase — each one is a specific instance of a law/principle above, not a new framework. Use these when auditing the matching page type; they make the corpus concrete instead of generic.
+
+### Delivery / Shipping Page
+- Shipping cost shown early, not held back until the final checkout step (surprise cost at the end is the single most common cause of cart abandonment) — **Nielsen's Visibility of System Status**, error prevention
+- Delivery estimates in real dates or clear ranges, not vague "5-7 business days" — **Match Between System and the Real World**
+- Free-shipping threshold shown prominently if one exists ("add $12 more for free shipping") — **Goal-Gradient Effect**
+- Delivery speed options kept short (2-4 choices), not a long list — **Hick's Law**
+
+### Checkout Page
+- **Guest checkout offered clearly, not buried or forced behind account creation** — this is now an internet-wide convention (see Account/Login below), and forcing registration is one of the most common checkout-abandonment causes — **Jakob's Law**, **Tesler's Law** (don't push the complexity of account management onto a one-time buyer)
+- Progress indicator for multi-step checkout, so the visitor knows how many steps remain — **Goal-Gradient Effect**, **Zeigarnik Effect**, Nielsen's Visibility of System Status
+- Ask only for fields actually needed to complete the order — **Miller's Law**, Shneiderman's Reduce Short-Term Memory Load
+- Persistent order/cart summary visible throughout — **Recognition Rather Than Recall**
+- Inline, specific error messages on invalid fields, not a generic "error occurred" — Nielsen's Help Users Recognize/Diagnose/Recover from Errors
+
+### Account / Login Page
+- **Guest checkout available as a real option here too** — don't gate the purchase behind a login wall; visitors expect to be able to buy without creating an account — **Jakob's Law**
+- Password requirements shown upfront, before the first failed submit — **Error Prevention**
+- Social/one-click login offered alongside email, to reduce the choice and typing burden — **Hick's Law**, **Fitts's Law**
+- "Forgot password" clearly visible and easy to use — **User Control and Freedom**
+
+### Payment Page
+- Multiple payment methods shown, matching what the visitor already expects to see (card, digital wallets, and locally relevant methods) — **Jakob's Law**
+- Trust/security signals (SSL indicator, payment-provider badges) visible right next to the payment fields, not just in the footer — **Authority** (Cialdini), **Perceivable** (WCAG)
+- Card fields auto-format and auto-detect type as the visitor types — **Doherty Threshold**, **Postel's Law**
+- No new fees or terms revealed for the first time on this page — **Error Prevention**, directly a trust/Authority issue if violated
+
 ## How to Audit a Page
 
 1. **Identify what the page is asking the visitor to do** (buy, sign up, compare, read, navigate) — this determines which laws are even relevant.

@@ -7,13 +7,13 @@ Run the **Premium-tier** CRO fulfillment pipeline. This is a Paid pipeline — t
 
 Dispatch the `cro-orchestrator` agent, telling it explicitly this order is **Premium** tier so it dispatches exactly:
 - `cro-funnel-auditor` (Basic's set, up to 6 pages)
-- `cro-ux-laws-auditor` (Standard's addition — UX Laws Audit, no external tool needed)
-- `cro-ux-reviewer` (Standard's addition — mobile+desktop UX review, re-scan, + heatmap bonus if connected)
-- `cro-tracking-auditor` (GA4 + tracking-setup audit)
+- `cro-sins-auditor` (7 Deadly Sins of CRO scan — carried through every tier)
+- `cro-ux-reviewer` (Standard's addition — mobile+desktop UX review checked against ~50 usability/persuasion laws, re-scan with lift analysis, + heatmap bonus if connected)
+- `cro-tracking-auditor` (deep GA4 event/measurability audit, beyond the Basic-tier presence check)
 - `cro-ab-test-strategist` (A/B test roadmap — 6 ready-to-run ideas, tied to the funnel audit's findings)
 - `cro-competitor-benchmark` (2 named competitors)
 
-Run `cro-funnel-auditor` first — `cro-ux-reviewer` and `cro-ab-test-strategist` both reference its findings. `cro-ux-laws-auditor`, `cro-tracking-auditor`, and `cro-competitor-benchmark` are independent and can run in parallel.
+Run `cro-funnel-auditor` first — `cro-ux-reviewer` and `cro-ab-test-strategist` both reference its findings. `cro-sins-auditor`, `cro-tracking-auditor`, and `cro-competitor-benchmark` are independent and can run in parallel.
 
 Order details: $ARGUMENTS
 
